@@ -9,25 +9,31 @@
 <div class="k">Deborah.S · Créteil · depuis 2018</div>
 <h1>Avant de choisir, <em>lis&nbsp;ça.</em></h1>
 <p>Des guides courts et offerts, pour comprendre ce que tu choisis. Que tu viennes pour un soin ou pour te former.</p>
-<div class="tabs2"><a class="on" href="#clientes">Je viens pour un soin</a><a href="#praticiennes">Je veux me former</a></div>
+<div class="choix2"><a href="#clientes" data-open="clientes">Je viens pour un soin</a><a href="#praticiennes" data-open="praticiennes" class="b2">Je veux me former</a></div>
 </div>
 <main class="wrap">
-<section class="list" id="clientes">
-<div class="lab">Pour tes soins</div>
-<h2>Pour toi, <em>cliente.</em></h2>
+<section>
+<details class="fold big soin" id="clientes">
+<summary><span class="lab">Pour tes soins</span><span class="ft">Pour toi, <em>cliente.</em></span><span class="fs">Lipo, radiofréquence, drainage, visage · 5 guides offerts</span></summary>
+<div class="list in">
 <a href="zone/"><b>Ce bourrelet qui résiste au sport</b><br>Ce que la lipocavitation peut faire sur une zone.</a>
 <a href="corps/"><b>Graisse ou peau qui se relâche&nbsp;?</b><br>Le test de 10 secondes à faire chez toi.</a>
 <a href="bilan/"><b>Ton bilan avant ta cure</b><br>Ce qui se passe pendant le bilan, et 3 questions à poser.</a>
 <a href="drainage/"><b>Ta première séance de drainage</b><br>Comment ça se passe, et ce qu'il faut savoir avant.</a>
 <a href="visage/"><b>Radiofréquence ou drainage visage&nbsp;?</b><br>Lequel choisir pour toi.</a>
+</div>
+</details>
 </section>
-<section class="list" id="praticiennes">
-<div class="lab">Deborah.S Academy</div>
-<h2>Pour toi, <em>future praticienne.</em></h2>
+<section>
+<details class="fold big forma" id="praticiennes">
+<summary><span class="lab">Deborah.S Academy · Formations</span><span class="ft">Pour toi, <em>future praticienne.</em></span><span class="fs">Le calcul, le test du pincement, ma méthode · Offre spéciale présentiel jusqu'au 31&nbsp;décembre</span></summary>
+<div class="list in">
 <a href="praticiennes/calcul/"><b>Ta formation payée en combien de cures&nbsp;?</b><br>Le calcul de Deborah&nbsp;: choisis ta formule, règle les curseurs.</a>
 <a href="praticiennes/formation/"><b>Ajoute la lipo et la radiofréquence à tes soins</b><br>Ce que tu sauras faire, et comment je forme.</a>
 <a href="praticiennes/pincement/"><b>Le test du pincement</b><br>Lipo ou radiofréquence&nbsp;: le test de 10 secondes.</a>
 <a href="https://deborahs94.github.io/guidelipo3points/"><b>3 choses que personne ne t'apprend sur la lipocavitation</b><br>Le contact, les zones interdites, le protocole.</a>
+</div>
+</details>
 </section>
 <section>
 <details class="fold">
@@ -47,4 +53,10 @@
 <a class="btn" href="https://deborahsliporf94.setmore.com/?utm_source=instagram&amp;utm_medium=lead&amp;utm_campaign=accueil">Réserver un soin</a>
 <a class="btn2" href="https://wa.me/33780996061?text=Bonjour%20Deborah%2C%20je%20voudrais%20le%20programme%20de%20la%20formation%20lipo%20et%20radiofr%C3%A9quence.">Recevoir le programme de formation</a></div></div>
 <footer><div class="sig">✦</div>Deborah.S · Créteil · Certifiée Qualiopi<br>138 avis Google</footer>
+<script>
+document.querySelectorAll('[data-open]').forEach(function(a){a.addEventListener('click',function(e){
+ var d=document.getElementById(a.getAttribute('data-open'));if(!d)return;e.preventDefault();d.open=true;
+ d.scrollIntoView({behavior:'smooth',block:'start'});});});
+if(location.hash){var d=document.getElementById(location.hash.slice(1));if(d&&d.tagName==='DETAILS')d.open=true;}
+</script>
 </body></html>

@@ -61,3 +61,22 @@ footer .sig{font-family:'Playfair Display',serif;font-size:24px;color:var(--bord
 .fold .docs{padding:0 14px 6px}
 .fold .note{margin:6px 14px 18px}
 .fold .doc{border-color:#efe8de}
+/* accueil : grands choix + cartes dépliables */
+.choix2{display:grid;grid-template-columns:1fr;gap:12px;margin:26px auto 0;max-width:420px}
+.choix2 a{display:block;text-align:center;text-decoration:none;font-weight:600;font-size:14.5px;letter-spacing:.16em;text-transform:uppercase;padding:20px 16px;border-radius:14px;background:var(--bordeaux);color:var(--creme)}
+.choix2 a.b2{background:var(--sombre)}
+.fold.big{margin-top:16px;overflow:hidden;border-radius:20px}
+.fold.big>summary{padding:28px 60px 28px 24px}
+.fold.big .ft{font-size:clamp(28px,8vw,36px)}
+.fold.big .fs{font-size:14.5px;font-weight:500}
+.fold.soin>summary{background:#EFE7DC}
+.fold.soin>summary .lab{color:var(--bordeaux)}
+.fold.forma>summary{background:var(--bordeaux)}
+.fold.forma>summary .lab,.fold.forma>summary .fs{color:#f1d9dc}
+.fold.forma>summary .ft{color:#fff}
+.fold.forma>summary .ft em{color:#f1d9dc}
+.fold.forma>summary::after{color:#fff}
+.fold.big[open]>summary{border-bottom:1px solid var(--filet)}
+.list.in{padding:4px 14px 18px}
+.list.in a{background:var(--creme)}
+html{scroll-behavior:smooth}
