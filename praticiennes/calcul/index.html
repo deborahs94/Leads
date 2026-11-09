@@ -27,6 +27,12 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
 .res-box p{color:rgba(248,246,241,.88);font-weight:300;font-size:15.5px}
 .res-box .det{margin-top:16px;padding-top:14px;border-top:1px solid rgba(248,246,241,.25);font-size:14px;line-height:1.7;text-align:left}
 .res-box .det div{display:flex;justify-content:space-between;gap:10px}
+.bandeau{background:var(--bordeaux);color:var(--creme);border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.5;margin-bottom:12px}
+.bandeau b{font-weight:600}
+.choix button.promo{position:relative;padding-top:30px}
+.choix button.promo[aria-pressed="true"]{padding-top:29px}
+.ruban{position:absolute;top:-1px;left:-1px;right:-1px;background:var(--bordeaux);color:var(--creme);font-style:normal;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;text-align:center;padding:5px 4px;border-radius:12px 12px 0 0}
+.choix button span s{font-family:'Montserrat',sans-serif;font-size:14px;color:var(--doux);margin-right:4px}
 .fine{font-size:13px;color:var(--doux);margin-top:14px;line-height:1.55}
 </style>
 </head>
@@ -41,39 +47,40 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
 <section>
 <div class="calc" id="calc">
  <div class="q">
-  <b>1. Ta formation</b>
+  <b>Ta formation</b>
   <small>Les deux formules couvrent les 4 techniques : lipocavitation, radiofréquence, vacuum, lipolaser.</small>
+  <p class="bandeau" id="bandeau">Offre spéciale présentiel&nbsp;: <b>2&nbsp;000&nbsp;€ au lieu de 2&nbsp;500&nbsp;€</b>, jusqu'au 31&nbsp;décembre 2026, pour 2&nbsp;personnes uniquement.</p>
   <div class="choix" role="group" aria-label="Ta formule">
-   <button type="button" data-f="elearning" aria-pressed="true">E-learning + visio privée<span>1&nbsp;000&nbsp;€</span></button>
-   <button type="button" data-f="presentiel" aria-pressed="false">Présentiel privé, machine incluse<span>2&nbsp;500&nbsp;€</span></button>
+   <button type="button" data-f="elearning" aria-pressed="false">E-learning + visio privée<span>1&nbsp;000&nbsp;€</span></button>
+   <button type="button" data-f="presentiel" aria-pressed="true" class="promo"><i class="ruban" id="ruban">Offre spéciale</i>Présentiel privé, machine incluse<span id="p-prix"><s>2&nbsp;500&nbsp;€</s> 2&nbsp;000&nbsp;€</span></button>
   </div>
  </div>
  <div class="q" id="q-machine">
-  <label for="r-machine"><b>2. Ta machine</b></label>
+  <label for="r-machine"><b>Ta machine</b></label>
   <small>En e-learning, la machine s'achète à part. Le prix que je constate&nbsp;: entre 500 et 850&nbsp;€.</small>
   <div class="row"><span>Machine</span><span class="val" id="v-machine">650&nbsp;€</span></div>
   <input type="range" id="r-machine" min="500" max="850" step="50" value="650">
   <div class="minmax"><span>500&nbsp;€</span><span>850&nbsp;€</span></div>
  </div>
  <div class="q">
-  <label for="r-corps"><b>3. Le prix de ta cure corps</b></label>
+  <label for="r-corps"><b>Le prix de ta cure corps</b></label>
   <small>Lipocavitation + radiofréquence. Le prix que je conseille&nbsp;: entre 400 et 520&nbsp;€ la cure.</small>
-  <div class="row"><span>Cure corps</span><span class="val" id="v-corps">480&nbsp;€</span></div>
-  <input type="range" id="r-corps" min="400" max="520" step="10" value="480">
+  <div class="row"><span>Cure corps</span><span class="val" id="v-corps">500&nbsp;€</span></div>
+  <input type="range" id="r-corps" min="400" max="520" step="10" value="500">
   <div class="minmax"><span>400&nbsp;€</span><span>520&nbsp;€</span></div>
  </div>
  <div class="q">
-  <label for="r-nc"><b>4. Combien de cures corps par mois&nbsp;?</b></label>
+  <label for="r-nc"><b>Combien de cures corps par mois&nbsp;?</b></label>
   <small>Choisis le rythme que tu imagines au départ.</small>
-  <div class="row"><span>Cures corps</span><span class="val" id="v-nc">2</span></div>
-  <input type="range" id="r-nc" min="0" max="10" step="1" value="2">
+  <div class="row"><span>Cures corps</span><span class="val" id="v-nc">4</span></div>
+  <input type="range" id="r-nc" min="0" max="10" step="1" value="4">
   <div class="minmax"><span>0</span><span>10 par mois</span></div>
  </div>
  <div class="q">
-  <label for="r-nv"><b>5. Et des cures visage&nbsp;?</b></label>
+  <label for="r-nv"><b>Et des cures visage&nbsp;?</b></label>
   <small>Radiofréquence visage. Le prix que je conseille&nbsp;: 300&nbsp;€ la cure.</small>
-  <div class="row"><span>Cures visage</span><span class="val" id="v-nv">1</span></div>
-  <input type="range" id="r-nv" min="0" max="10" step="1" value="1">
+  <div class="row"><span>Cures visage</span><span class="val" id="v-nv">0</span></div>
+  <input type="range" id="r-nv" min="0" max="10" step="1" value="0">
   <div class="minmax"><span>0</span><span>10 par mois</span></div>
  </div>
 </div>
@@ -111,9 +118,12 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
 
 <script>
 (function(){
- var f='elearning',FORM={elearning:1000,presentiel:2500},VISAGE=300;
  var $=function(i){return document.getElementById(i)};
- function eur(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+'\u00a0€'}
+ var f='presentiel',FORM={elearning:1000,presentiel:2000},VISAGE=300;
+ if(new Date()>new Date('2027-01-01T00:00:00')){FORM.presentiel=2500;
+  var bd=$('bandeau');if(bd)bd.remove();var rb=$('ruban');if(rb)rb.remove();
+  $('p-prix').innerHTML='2\u00a0500\u00a0€';document.querySelector('.promo').classList.remove('promo');}
+  function eur(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+'\u00a0€'}
  function upd(){
   var MACHINE=+$('r-machine').value,pc=+$('r-corps').value,nc=+$('r-nc').value,nv=+$('r-nv').value;
   var inv=FORM[f]+(f==='elearning'?MACHINE:0);
