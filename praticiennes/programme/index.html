@@ -21,11 +21,14 @@
 .inc span{display:block;font-size:15px;color:#4a413d;margin-top:2px}
 .wa{display:block;text-align:center;margin-top:18px;color:var(--creme);font-size:15px}
 .wa a{color:var(--creme);border-bottom:1px solid rgba(248,246,241,.6);text-decoration:none;padding-bottom:2px}
+.diag{position:absolute;top:34px;right:-74px;width:280px;transform:rotate(38deg);background:#F8F6F1;color:#6B1526;text-align:center;font-family:'Playfair Display',serif;font-size:24px;line-height:1.1;padding:8px 0 7px;box-shadow:0 6px 16px rgba(0,0,0,.25);z-index:3}
+.diag small{display:block;font-family:Montserrat,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-top:2px}
+.hero .wrap{padding-right:70px}
 @media print{.cta,.noprint{display:none}}
 </style>
 </head>
 <body>
-<header class="hero"><div class="wrap">
+<header class="hero" style="position:relative;overflow:hidden"><div class="diag" id="diag">1&nbsp;590&nbsp;€<small>jusqu'au 31&nbsp;décembre</small></div><div class="wrap">
 <div class="k">Deborah.S Academy · Programme</div>
 <h1>Lipocavitation <em>&amp; radiofréquence</em></h1>
 <p>4 techniques, visage et corps&nbsp;: lipocavitation, radiofréquence, vacuum thérapie et lipolaser. Avec ma méthode&nbsp;: observer, tester, différencier, choisir, vérifier.</p>
@@ -96,5 +99,6 @@
 <a class="btn" href="https://wa.me/33780996061?text=Bonjour%20Deborah%2C%20j%27ai%20lu%20le%20programme%20et%20je%20voudrais%20r%C3%A9server%20ma%20place.">Écrire sur WhatsApp</a>
 </div></div>
 <footer><div class="sig">✦</div>Deborah.S Academy · Certifiée Qualiopi<br>Formatrice depuis 2018 · 138 avis Google</footer>
+<script>if(new Date()>new Date('2027-01-01T00:00:00')){var d=document.getElementById('diag');if(d)d.remove();}</script>
 </body>
 </html>
