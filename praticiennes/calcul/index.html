@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ta formation payée en combien de cures ? · Deborah.S Academy">
-<meta property="og:description" content="Le calcul de Deborah.S : ta formation lipo et radiofréquence, et ta machine, payées en combien de cures et combien de mois.">
+<meta property="og:description" content="Le calcul de Deborah.S : ta formation lipo et radiofréquence, et ta machine, payées en combien de cures.">
 <meta property="og:image" content="https://deborahs94.github.io/Leads/img/partage.jpg">
 <meta property="og:url" content="https://deborahs94.github.io/Leads/praticiennes/calcul/">
 <meta name="twitter:card" content="summary_large_image">
 <title>Ta formation payée en combien de cures ? · Deborah.S Academy</title>
-<meta name="description" content="Le calcul de Deborah.S : ta formation lipo et radiofréquence, et ta machine, payées en combien de cures et combien de mois.">
+<meta name="description" content="Le calcul de Deborah.S : ta formation lipo et radiofréquence, et ta machine, payées en combien de cures.">
 <link rel="stylesheet" href="../../style.css?v=3">
 <style>
 .calc{background:#fff;border:1px solid var(--filet);border-radius:18px;padding:22px 20px;margin-top:10px}
@@ -97,7 +97,7 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
 <div class="res-box" aria-live="polite">
  <div class="k">Ton résultat</div>
  <div class="big" id="r-big">4 <em>cures</em></div>
- <p id="r-txt">Soit environ 2 mois pour payer ta formation et ta machine.</p>
+ <p id="r-txt">Dès le premier mois, ta formation est payée, machine incluse.</p>
  <div class="det">
   <div><span>Ton investissement</span><b id="d-inv">1&nbsp;500&nbsp;€</b></div>
   <div><span>Ton temps de travail estimé</span><b id="d-h">32&nbsp;h / mois</b></div>
@@ -172,7 +172,7 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
   if(m<=1){$('r-txt').textContent='Dès le premier mois, '+quoi+'.';}
   else{var pct=Math.min(99,Math.floor(mois/inv*100));
    $('r-txt').textContent='Dès le premier mois, '+pct+'\u00a0% de '+(f==='elearning'?'ta formation et ta machine':'ta formation')+(f==='elearning'?' sont payées':' est payée')+'. Le reste, avec ta '+cures+'e cure.';}
-  $('wa').href='https://wa.me/33780996061?text='+encodeURIComponent("Bonjour Deborah, j'ai fait le calcul : "+cures+" cures, environ "+m+" mois. Je voudrais le programme de la formation.");
+  $('wa').href='https://wa.me/33780996061?text='+encodeURIComponent("Bonjour Deborah, j'ai fait le calcul : "+cures+" cures. Je voudrais le programme de la formation.");
  }
  document.querySelectorAll('[data-f]').forEach(function(b){b.addEventListener('click',function(){
   f=b.getAttribute('data-f');document.querySelectorAll('[data-f]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});upd()})});
