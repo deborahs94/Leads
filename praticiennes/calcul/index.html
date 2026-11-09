@@ -33,6 +33,7 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
 .choix button.promo[aria-pressed="true"]{padding-top:29px}
 .ruban{position:absolute;top:-1px;left:-1px;right:-1px;background:var(--bordeaux);color:var(--creme);font-style:normal;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;text-align:center;padding:5px 4px;border-radius:12px 12px 0 0}
 .choix button span s{font-family:'Montserrat',sans-serif;font-size:14px;color:var(--doux);margin-right:4px}
+.hint-h{margin-top:8px;font-size:13px;color:rgba(248,246,241,.75);text-align:left}
 .up{margin-top:16px;padding:14px 14px;background:rgba(248,246,241,.1);border:1px solid rgba(248,246,241,.3);border-radius:12px;font-size:14.5px;line-height:1.5;text-align:left}
 .up button{display:block;margin-top:10px;font-family:inherit;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;background:var(--creme);color:var(--bordeaux);border:0;border-radius:8px;padding:12px 14px;cursor:pointer;min-height:44px}
 .fine{font-size:13px;color:var(--doux);margin-top:14px;line-height:1.55}
@@ -93,8 +94,10 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
  <p id="r-txt">Soit environ 2 mois pour payer ta formation et ta machine.</p>
  <div class="det">
   <div><span>Ton investissement</span><b id="d-inv">1&nbsp;500&nbsp;€</b></div>
+  <div><span>Ton temps de travail estimé</span><b id="d-h">32&nbsp;h / mois</b></div>
   <div><span>Ce que tes cures rapportent par mois</span><b id="d-mois">1&nbsp;260&nbsp;€</b></div>
  </div>
+ <p class="hint-h" id="d-h2"></p>
  <p class="up" id="up" hidden></p>
 </div>
 <p class="fine">Ce calcul est une estimation, sur le prix de tes cures et avant tes charges (produits, local, cotisations). Ton activité dépend de toi, de ta ville et de ton rythme&nbsp;: c'est un repère, pas une promesse.</p>
@@ -122,7 +125,7 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
 <script>
 (function(){
  var $=function(i){return document.getElementById(i)};
- var f='presentiel',FORM={elearning:1000,presentiel:2000},VISAGE=300;
+ var SEANCES=4,DUREE=1,f='presentiel',FORM={elearning:1000,presentiel:2000},VISAGE=300;
  if(new Date()>new Date('2027-01-01T00:00:00')){FORM.presentiel=2500;
   var bd=$('bandeau');if(bd)bd.remove();var rb=$('ruban');if(rb)rb.remove();
   $('p-prix').innerHTML='2\u00a0500\u00a0€';document.querySelector('.promo').classList.remove('promo');}
@@ -135,6 +138,9 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
   $('q-machine').style.display=f==='elearning'?'':'none';
   $('d-inv').textContent=eur(inv);$('d-mois').textContent=eur(mois);
   var avg=(nc+nv)>0?mois/(nc+nv):pc, cures=Math.ceil(inv/avg);
+  var nbS=(nc+nv)*SEANCES,h=nbS*DUREE;
+  $('d-h').textContent=h+'\u00a0h / mois';
+  $('d-h2').textContent=nbS>0?(nbS+' séances d\u2019une heure ('+SEANCES+' séances par cure), soit environ '+(Math.round(h/4.33*10)/10).toString().replace('.',',')+'\u00a0h par semaine.'):'';
   var up=$('up'),diff=FORM.presentiel-inv;
   if(f==='elearning'&&diff>0){up.hidden=false;up.innerHTML='Pour <b>'+eur(diff)+' de plus</b>, le présentiel inclut la machine, la formation en privé avec moi et un modèle attribué du début à la fin.<button type="button" id="to-pres">Voir le présentiel</button>';
    $('to-pres').onclick=function(){document.querySelector('[data-f=presentiel]').click()};}
