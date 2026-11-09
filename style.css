@@ -51,3 +51,13 @@ footer .sig{font-family:'Playfair Display',serif;font-size:24px;color:var(--bord
 .doc span{display:block;font-size:14.5px;color:#4a413d;margin-top:4px}
 .doc a{display:inline-block;margin-top:12px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--bordeaux);text-decoration:none;border-bottom:1px solid var(--bordeaux);padding-bottom:2px}
 @media(min-width:760px){.docs{grid-template-columns:repeat(3,1fr)}}
+.fold{background:#fff;border:1px solid var(--filet);border-radius:16px;margin-top:10px}
+.fold>summary{list-style:none;cursor:pointer;display:block;padding:22px 56px 22px 22px;position:relative}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::after{content:"+";position:absolute;right:22px;top:50%;margin-top:-20px;font-size:34px;line-height:1;color:var(--bordeaux);transition:transform .2s}
+.fold[open]>summary::after{transform:rotate(45deg)}
+.fold .ft{display:block;font-family:'Playfair Display',serif;font-size:clamp(23px,6vw,30px);line-height:1.2;margin-top:6px}
+.fold .fs{display:block;font-size:13.5px;color:var(--doux);margin-top:6px}
+.fold .docs{padding:0 14px 6px}
+.fold .note{margin:6px 14px 18px}
+.fold .doc{border-color:#efe8de}
