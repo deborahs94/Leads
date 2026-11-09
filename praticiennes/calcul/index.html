@@ -168,7 +168,10 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
   if(mois<=0){$('r-big').innerHTML='—';$('r-txt').textContent="Ajoute au moins une cure par mois pour voir ton résultat.";return}
   var m=Math.ceil(inv/mois);
   $('r-big').innerHTML=cures+' <em>cure'+(cures>1?'s':'')+'</em>';
-  $('r-txt').textContent='Soit environ '+m+' mois pour payer ta formation'+(f==='elearning'?' et ta machine.':', machine incluse.');
+  var quoi=(f==='elearning'?'ta formation et ta machine sont payées':'ta formation est payée, machine incluse');
+  if(m<=1){$('r-txt').textContent='Dès le premier mois, '+quoi+'.';}
+  else{var pct=Math.min(99,Math.floor(mois/inv*100));
+   $('r-txt').textContent='Dès le premier mois, '+pct+'\u00a0% de '+(f==='elearning'?'ta formation et ta machine':'ta formation')+(f==='elearning'?' sont payées':' est payée')+'. Le reste, avec ta '+cures+'e cure.';}
   $('wa').href='https://wa.me/33780996061?text='+encodeURIComponent("Bonjour Deborah, j'ai fait le calcul : "+cures+" cures, environ "+m+" mois. Je voudrais le programme de la formation.");
  }
  document.querySelectorAll('[data-f]').forEach(function(b){b.addEventListener('click',function(){
