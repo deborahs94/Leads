@@ -40,6 +40,10 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
 .ruban{position:absolute;top:-1px;left:-1px;right:-1px;background:var(--bordeaux);color:var(--creme);font-style:normal;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;text-align:center;padding:5px 4px;border-radius:12px 12px 0 0}
 .choix button span s{font-family:'Montserrat',sans-serif;font-size:14px;color:var(--doux);margin-right:4px}
 .hint-h{margin-top:8px;font-size:13px;color:rgba(248,246,241,.75);text-align:left}
+.apres{margin-top:18px;padding:18px 16px;border-radius:14px;background:#F8F6F1;color:#3E2028;text-align:left}
+.apres span{display:block;font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:#6B1526;margin-bottom:6px}
+.apres p{font-size:15px;line-height:1.55;color:#3E2028}
+.apres b{font-family:'Playfair Display',serif;font-weight:400;font-size:24px;color:#6B1526;white-space:nowrap}
 .up{margin-top:16px;padding:14px 14px;background:rgba(248,246,241,.1);border:1px solid rgba(248,246,241,.3);border-radius:12px;font-size:14.5px;line-height:1.5;text-align:left}
 .up button{display:block;margin-top:10px;font-family:inherit;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;background:var(--creme);color:var(--bordeaux);border:0;border-radius:8px;padding:12px 14px;cursor:pointer;min-height:44px}
 .fine{font-size:13px;color:var(--doux);margin-top:14px;line-height:1.55}
@@ -104,6 +108,7 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
   <div><span>Ce que tes cures rapportent par mois</span><b id="d-mois">1&nbsp;260&nbsp;€</b></div>
  </div>
  <p class="hint-h" id="d-h2"></p>
+ <div class="apres" id="apres"><span>Et après&nbsp;?</span><p>Une fois ta formation payée, chaque mois, tes cures continuent de te rapporter <b id="d-apres">2&nbsp;000&nbsp;€</b>. Et les consommables coûtent très peu.</p></div>
  <p class="up" id="up" hidden></p>
 </div>
 <p class="fine">Ce calcul est une estimation, sur le prix de tes cures et avant tes charges (produits, local, cotisations). Ton activité dépend de toi, de ta ville et de ton rythme&nbsp;: c'est un repère, pas une promesse.</p>
@@ -155,6 +160,7 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
   $('v-machine').textContent=eur(MACHINE);$('v-corps').textContent=eur(pc);$('v-nc').textContent=nc;$('v-nv').textContent=nv;
   $('q-machine').style.display=f==='elearning'?'':'none';
   $('d-inv').textContent=eur(inv);$('d-mois').textContent=eur(mois);
+  $('d-apres').textContent=eur(mois);$('apres').style.display=mois>0?'':'none';
   var avg=(nc+nv)>0?mois/(nc+nv):pc, cures=Math.ceil(inv/avg);
   var nbS=(nc+nv)*SEANCES,h=nbS*DUREE;
   $('d-h').textContent=h+'\u00a0h / mois';
