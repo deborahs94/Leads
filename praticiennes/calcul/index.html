@@ -46,11 +46,17 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
 .apres b{font-family:'Playfair Display',serif;font-weight:400;font-size:24px;color:#6B1526;white-space:nowrap}
 .up{margin-top:16px;padding:14px 14px;background:rgba(248,246,241,.1);border:1px solid rgba(248,246,241,.3);border-radius:12px;font-size:14.5px;line-height:1.5;text-align:left}
 .up button{display:block;margin-top:10px;font-family:inherit;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;background:var(--creme);color:var(--bordeaux);border:0;border-radius:8px;padding:12px 14px;cursor:pointer;min-height:44px}
+.diag{position:absolute;top:34px;right:-74px;width:280px;transform:rotate(38deg);background:#F8F6F1;color:#6B1526;text-align:center;font-family:'Playfair Display',serif;font-size:24px;line-height:1.1;padding:8px 0 7px;box-shadow:0 6px 16px rgba(0,0,0,.25);z-index:3}
+.diag small{display:block;font-family:Montserrat,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-top:2px}
+.hero .wrap{padding-right:70px}
+.cta .choix2 a{background:var(--creme);color:var(--bordeaux);font-size:16px;padding:22px 16px}
+.wa-l{margin-top:22px;font-size:15px}
+.wa-l a{color:var(--creme);border-bottom:1px solid rgba(248,246,241,.6);text-decoration:none;padding-bottom:2px}
 .fine{font-size:13px;color:var(--doux);margin-top:14px;line-height:1.55}
 </style>
 </head>
 <body>
-<header class="hero"><div class="wrap">
+<header class="hero" style="position:relative;overflow:hidden"><div class="diag" id="diag">1&nbsp;590&nbsp;€<small>jusqu'au 31&nbsp;décembre</small></div><div class="wrap">
 <div class="k">Le calcul de Deborah · Gratuit</div>
 <h1>Ta formation et ta machine, <em>payées en combien de cures&nbsp;?</em></h1>
 <p>Choisis ta formule, règle les curseurs. Les chiffres de départ sont ceux que je donne à mes élèves.</p>
@@ -139,9 +145,10 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
 </main>
 
 <div class="cta"><div class="wrap">
-<h2>Tu veux qu'on en parle&nbsp;?</h2>
-<p>Écris-moi sur WhatsApp avec ton résultat. Je te réponds moi-même et je t'envoie le programme.</p>
-<a class="btn" id="wa" href="https://wa.me/33780996061?text=Bonjour%20Deborah%2C%20j%27ai%20fait%20le%20calcul%20et%20je%20voudrais%20le%20programme%20de%20la%20formation.">Recevoir le programme</a>
+<h2>Tu veux voir le programme&nbsp;?</h2>
+<p>Les 4 techniques, les 10 parties, tout ce qui est inclus.</p>
+<div class="choix2"><a href="../programme/">Recevoir le programme</a></div>
+<p class="wa-l">Une question&nbsp;? <a id="wa" href="https://wa.me/33780996061?text=Bonjour%20Deborah%2C%20j%27ai%20fait%20le%20calcul%20et%20j%27ai%20une%20question.">Écris-moi sur WhatsApp</a></p>
 </div></div>
 <footer><div class="sig">✦</div>Deborah.S Academy · Certifiée Qualiopi<br>Formatrice depuis 2018 · 138 avis Google</footer>
 
@@ -150,7 +157,7 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
  var $=function(i){return document.getElementById(i)};
  var SEANCES=4,DUREE=1,f='presentiel',FORM={elearning:1000,presentiel:1590},VISAGE=300;
  if(new Date()>new Date('2027-01-01T00:00:00')){FORM.presentiel=2500;
-  var bd=$('bandeau');if(bd)bd.remove();var rb=$('ruban');if(rb)rb.remove();
+  var bd=$('bandeau');if(bd)bd.remove();var dg=$('diag');if(dg)dg.remove();var rb=$('ruban');if(rb)rb.remove();
   $('p-prix').innerHTML='2\u00a0500\u00a0€';document.querySelector('.promo').classList.remove('promo');}
   function eur(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+'\u00a0€'}
  function upd(){
@@ -178,7 +185,7 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
   if(m<=1){$('r-txt').textContent='Dès le premier mois, '+quoi+'.';}
   else{var pct=Math.min(99,Math.floor(mois/inv*100));
    $('r-txt').textContent='Dès le premier mois, '+pct+'\u00a0% de '+(f==='elearning'?'ta formation et ta machine':'ta formation')+(f==='elearning'?' sont payées':' est payée')+'. Le reste, avec ta '+cures+'e cure.';}
-  $('wa').href='https://wa.me/33780996061?text='+encodeURIComponent("Bonjour Deborah, j'ai fait le calcul : "+cures+" cures. Je voudrais le programme de la formation.");
+  $('wa').href='https://wa.me/33780996061?text='+encodeURIComponent("Bonjour Deborah, j'ai fait le calcul : "+cures+" cures. J'ai une question sur la formation.");
  }
  document.querySelectorAll('[data-f]').forEach(function(b){b.addEventListener('click',function(){
   f=b.getAttribute('data-f');document.querySelectorAll('[data-f]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});upd()})});
