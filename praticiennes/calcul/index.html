@@ -49,16 +49,18 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
   </div>
  </div>
  <div class="q" id="q-machine">
-  <b>2. Ta machine</b>
-  <small>En e-learning, la machine s'achète à part. Le prix moyen que je constate&nbsp;: 500&nbsp;€.</small>
-  <div class="row"><span>Machine</span><span class="val" id="v-machine">500&nbsp;€</span></div>
+  <label for="r-machine"><b>2. Ta machine</b></label>
+  <small>En e-learning, la machine s'achète à part. Le prix que je constate&nbsp;: entre 500 et 850&nbsp;€.</small>
+  <div class="row"><span>Machine</span><span class="val" id="v-machine">650&nbsp;€</span></div>
+  <input type="range" id="r-machine" min="500" max="850" step="50" value="650">
+  <div class="minmax"><span>500&nbsp;€</span><span>850&nbsp;€</span></div>
  </div>
  <div class="q">
   <label for="r-corps"><b>3. Le prix de ta cure corps</b></label>
-  <small>Lipocavitation + radiofréquence. Le prix que je conseille&nbsp;: entre 450 et 520&nbsp;€ la cure.</small>
+  <small>Lipocavitation + radiofréquence. Le prix que je conseille&nbsp;: entre 400 et 520&nbsp;€ la cure.</small>
   <div class="row"><span>Cure corps</span><span class="val" id="v-corps">480&nbsp;€</span></div>
-  <input type="range" id="r-corps" min="450" max="520" step="10" value="480">
-  <div class="minmax"><span>450&nbsp;€</span><span>520&nbsp;€</span></div>
+  <input type="range" id="r-corps" min="400" max="520" step="10" value="480">
+  <div class="minmax"><span>400&nbsp;€</span><span>520&nbsp;€</span></div>
  </div>
  <div class="q">
   <label for="r-nc"><b>4. Combien de cures corps par mois&nbsp;?</b></label>
@@ -109,14 +111,14 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
 
 <script>
 (function(){
- var f='elearning',FORM={elearning:1000,presentiel:2500},MACHINE=500,VISAGE=300;
+ var f='elearning',FORM={elearning:1000,presentiel:2500},VISAGE=300;
  var $=function(i){return document.getElementById(i)};
  function eur(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+'\u00a0€'}
  function upd(){
-  var pc=+$('r-corps').value,nc=+$('r-nc').value,nv=+$('r-nv').value;
+  var MACHINE=+$('r-machine').value,pc=+$('r-corps').value,nc=+$('r-nc').value,nv=+$('r-nv').value;
   var inv=FORM[f]+(f==='elearning'?MACHINE:0);
   var mois=pc*nc+VISAGE*nv;
-  $('v-corps').textContent=eur(pc);$('v-nc').textContent=nc;$('v-nv').textContent=nv;
+  $('v-machine').textContent=eur(MACHINE);$('v-corps').textContent=eur(pc);$('v-nc').textContent=nc;$('v-nv').textContent=nv;
   $('q-machine').style.display=f==='elearning'?'':'none';
   $('d-inv').textContent=eur(inv);$('d-mois').textContent=eur(mois);
   var avg=(nc+nv)>0?mois/(nc+nv):pc, cures=Math.ceil(inv/avg);
@@ -128,7 +130,7 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
  }
  document.querySelectorAll('[data-f]').forEach(function(b){b.addEventListener('click',function(){
   f=b.getAttribute('data-f');document.querySelectorAll('[data-f]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});upd()})});
- ['r-corps','r-nc','r-nv'].forEach(function(i){$(i).addEventListener('input',upd)});
+ ['r-machine','r-corps','r-nc','r-nv'].forEach(function(i){$(i).addEventListener('input',upd)});
  upd();
 })();
 </script>
