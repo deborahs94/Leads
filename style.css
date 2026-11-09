@@ -33,3 +33,21 @@ footer{text-align:center;padding:30px 22px 40px;font-size:12px;letter-spacing:.1
 footer .sig{font-family:'Playfair Display',serif;font-size:24px;color:var(--bordeaux);letter-spacing:0}
 .list a{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--filet);border-radius:14px;padding:20px;margin-top:14px}
 .list b{font-family:'Playfair Display',serif;font-weight:400;font-size:22px;color:var(--bordeaux)}
+/* accueil */
+.cover{position:relative;height:min(118vw,620px);background:#cfc6bb url(img/deborah.jpg) center 22%/cover}
+.cover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(180deg,rgba(248,246,241,0) 0%,rgba(248,246,241,.75) 55%,#F8F6F1 100%)}
+.cover-txt{position:relative;margin-top:-150px;z-index:2;text-align:center;padding:0 22px}
+.cover-txt .k{font-size:11.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--bordeaux);font-weight:600}
+.cover-txt h1{font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:clamp(34px,9vw,52px);line-height:1.08;margin:12px 0 12px}
+.cover-txt p{color:#3f3733;max-width:30em;margin:0 auto}
+.tabs2{display:flex;gap:10px;justify-content:center;margin:26px 0 0;flex-wrap:wrap}
+.tabs2 a{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;text-decoration:none;color:var(--bordeaux);border:1px solid var(--bordeaux);border-radius:999px;padding:11px 18px}
+.tabs2 a.on{background:var(--bordeaux);color:var(--creme)}
+.sec-t{text-align:center;margin-top:12px}
+.docs{display:grid;gap:18px;margin-top:10px}
+.doc{background:#fff;border:1px solid var(--filet);border-radius:16px;padding:14px 18px 20px;text-align:center}
+.doc img{width:100%;max-width:340px;height:auto;display:block;margin:0 auto}
+.doc b{display:block;font-family:'Playfair Display',serif;font-weight:400;font-size:22px;color:var(--noir);margin-top:4px}
+.doc span{display:block;font-size:14.5px;color:#4a413d;margin-top:4px}
+.doc a{display:inline-block;margin-top:12px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--bordeaux);text-decoration:none;border-bottom:1px solid var(--bordeaux);padding-bottom:2px}
+@media(min-width:760px){.docs{grid-template-columns:repeat(3,1fr)}}
