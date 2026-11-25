@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ta formation lipo et radiofréquence · Deborah.S">
+<meta property="og:description" content="Reçois le programme, les dates et les places restantes.">
+<meta property="og:image" content="https://deborahs94.github.io/Leads/img/partage.jpg">
+<meta property="og:url" content="https://deborahs94.github.io/Leads/contact/">
+<meta name="twitter:card" content="summary_large_image">
+<title>Ta formation lipo et radiofréquence · Deborah.S</title>
+<meta name="description" content="Reçois le programme, les dates et les places restantes.">
+<link rel="stylesheet" href="../style.css?v=4">
+<style>
+form{background:#fff;border:1.5px solid #6B1526;border-radius:14px;padding:22px;margin-top:8px}
+label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px}
+input,select{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid rgba(107,21,38,.35);border-radius:10px;font:15px Montserrat,sans-serif;background:#fff;color:#2b2224}
+.hp{position:absolute;left:-9999px}
+button{width:100%;margin-top:20px;padding:16px;border:0;border-radius:30px;background:#6B1526;color:#fff;font:700 15px Montserrat,sans-serif;letter-spacing:.06em;cursor:pointer}
+button:disabled{opacity:.6}
+.ok{display:none;background:#fff;border:1.5px solid #6B1526;border-radius:14px;padding:22px}
+.err{color:#a0102a;font-size:14px;margin-top:10px;display:none}
+.btn{display:block;text-align:center;background:#6B1526;color:#fff;text-decoration:none;padding:15px;border-radius:30px;font-weight:600;margin-top:14px}
+.btn.alt{background:#fff;color:#6B1526;border:1.5px solid #6B1526}
+.small{font-size:12px;opacity:.7;margin-top:12px}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="k">Formation lipocavitation et radiofréquence</div>
+<h1>Ta formation, <em>ta machine, et moi après.</em></h1>
+<p>Laisse-moi tes coordonnées : je t'envoie le programme, les prochaines dates et les places restantes.</p>
+</div></header>
+<main class="wrap">
+<section>
+<div class="lab">Ce qui t'attend</div>
+<h2>Pas juste <em>une machine.</em></h2>
+<ol class="steps">
+<li><b>En privé avec moi</b>Une élève par machine, sur de vraies modèles.</li>
+<li><b>Ta machine et ton kit inclus</b>Tu repars prête à proposer tes cures.</li>
+<li><b>Je reste joignable</b>7 jours sur 7 après ta formation, pour tes premières clientes.</li>
+</ol>
+<p class="note">Organisme certifié Qualiopi. Paiement possible en plusieurs fois.</p>
+</section>
+
+<section id="go">
+<div class="lab">Reçois le programme</div>
+<h2>Parle-moi <em>de ton projet.</em></h2>
+<form id="f" novalidate>
+<label for="p">Ton prénom</label>
+<input id="p" name="PRENOM" autocomplete="given-name" required>
+<label for="e">Ton e-mail</label>
+<input id="e" name="EMAIL" type="email" autocomplete="email" required>
+<label for="t">Ton téléphone (WhatsApp)</label>
+<input id="t" name="SMS" type="tel" autocomplete="tel" placeholder="06 12 34 56 78" required>
+<label for="j">Où tu en es</label>
+<select id="j" name="PROJET" required>
+<option value="">Choisis…</option>
+<option>Je veux me lancer</option>
+<option>Je suis déjà formée ailleurs</option>
+<option>J'ai déjà une machine</option>
+<option>Je veux ajouter une prestation à mon institut</option>
+<option>Autre</option>
+</select>
+<input class="hp" name="email_address_check" tabindex="-1" autocomplete="off">
+<button id="b" type="submit">Recevoir le programme</button>
+<p class="err" id="er"></p>
+<p class="small">Tes coordonnées servent seulement à te recontacter au sujet de la formation. <a href="../confidentialite/">Confidentialité</a></p>
+</form>
+<div class="ok" id="ok">
+<h2 style="margin-top:0">Merci <span id="pn"></span>, <em>c'est noté.</em></h2>
+<p>Je te recontacte très vite sur WhatsApp ou par e-mail. En attendant, tu peux déjà regarder le programme.</p>
+<a class="btn" href="../praticiennes/programme/">Voir le programme</a>
+<a class="btn alt" id="wa" href="https://wa.me/33780996061">Une question ? Écris-moi</a>
+</div>
+</section>
+</main>
+<script>
+const U='https://9ccfbb65.sibforms.com/serve/MUIFADVIp8G3PoHO5djQE7HcgI_I-vXe-XgYMrE-30toz749RUPr2JQ52rgungCasQJxpKoG2laABGzddWFdbC6RZYTvRWFKTtkiSYWF74MxbLqh0Ag5Q-zA_legsFhX1smktEyjy_HIE8zo2CnZj5nV9WnlNJad9F5nCSet7OY8S-5dih8K43KJmuBZz-Zez-hK8pMSLbjX9pRYQg==';
+const f=document.getElementById('f'),er=document.getElementById('er'),b=document.getElementById('b');
+function tel(v){v=v.replace(/[^\d+]/g,'');let cc='+33';
+ if(v.startsWith('+')){const m=v.match(/^\+(590|594|596|262|269|687|689|33|32|41|352|212|213|216|\d{1,3})(\d+)$/);if(m){cc='+'+m[1];v=m[2]}}
+ else if(v.startsWith('00')){return tel('+'+v.slice(2))}
+ v=v.replace(/^0/,'');return [cc,v]}
+f.onsubmit=async e=>{e.preventDefault();er.style.display='none';
+ const P=f.PRENOM.value.trim(),E=f.EMAIL.value.trim(),T=f.SMS.value.trim(),J=f.PROJET.value;
+ if(!P||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(E)||T.replace(/\D/g,'').length<9||!J){er.textContent='Remplis bien les 4 champs, avec un e-mail et un téléphone valides.';er.style.display='block';return}
+ const [cc,num]=tel(T);
+ const d=new URLSearchParams({EMAIL:E,PRENOM:P,SMS__COUNTRY_CODE:cc,SMS:num,PROJET:J,email_address_check:f.email_address_check.value,locale:'fr'});
+ b.disabled=true;b.textContent='Envoi…';
+ try{await fetch(U,{method:'POST',mode:'no-cors',body:d});
+  document.getElementById('pn').textContent=P;
+  document.getElementById('wa').href='https://wa.me/33780996061?text='+encodeURIComponent(`Bonjour Deborah, c'est ${P}. Je viens de demander le programme de la formation (${J}).`);
+  f.style.display='none';document.getElementById('ok').style.display='block';
+  if(window.fbq)fbq('track','Lead');
+ }catch(x){er.textContent='Petit souci de connexion, réessaie dans un instant.';er.style.display='block';b.disabled=false;b.textContent='Recevoir le programme'}};
+</script>
+</body>
+</html>
