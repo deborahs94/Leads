@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lipœdème ou cellulite ? Le quiz · Deborah.S">
+<meta property="og:description" content="8 questions pour préparer ton rendez-vous avec ton médecin.">
+<meta property="og:image" content="https://deborahs94.github.io/Leads/img/partage.jpg">
+<meta property="og:url" content="https://deborahs94.github.io/Leads/quiz/">
+<meta name="twitter:card" content="summary_large_image">
+<title>Lipœdème ou cellulite ? Le quiz · Deborah.S</title>
+<meta name="description" content="8 questions pour préparer ton rendez-vous avec ton médecin.">
+<link rel="stylesheet" href="../style.css?v=4">
+<style>
+.q{border-bottom:1px solid rgba(107,21,38,.15);padding:18px 0}
+.q p{margin:0 0 12px;font-weight:500}
+.ch{display:flex;gap:10px}
+.ch button{flex:1;padding:12px;border:1.5px solid #6B1526;background:#fff;color:#6B1526;border-radius:30px;font:600 15px Montserrat,sans-serif;cursor:pointer}
+.ch button.on{background:#6B1526;color:#fff}
+#res{display:none;background:#fff;border:1.5px solid #6B1526;border-radius:12px;padding:22px;margin-top:24px}
+#res ul{padding-left:18px}
+.btn{display:block;text-align:center;background:#6B1526;color:#fff;text-decoration:none;padding:15px;border-radius:30px;font-weight:600;margin-top:14px}
+.btn.alt{background:#fff;color:#6B1526;border:1.5px solid #6B1526}
+.note{font-size:13px;opacity:.75;margin-top:18px}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="k">La question à un million</div>
+<h1>Lipœdème ou cellulite ? <em>Le quiz.</em></h1>
+<p>8 questions pour y voir plus clair et préparer ton rendez-vous avec ton médecin. Ce n'est pas un diagnostic : seul un médecin peut le poser.</p>
+</div></header>
+<main class="wrap">
+<section id="quiz">
+<div class="lab">Réponds simplement</div>
+<h2>Oui ou non, <em>pour toi.</em></h2>
+<div id="qs"></div>
+<a class="btn" href="#" id="voir">Voir mes réponses</a>
+<div id="res">
+<h2 style="margin-top:0">Tes réponses, <em>à montrer à ton médecin.</em></h2>
+<p id="txt"></p>
+<ul id="oui"></ul>
+<p><b>Pour ton rendez-vous :</b> prends en photo tes jambes debout, de face et de profil, et note depuis quand tu vois ces changements. Ton médecin traitant peut t'orienter vers un spécialiste si besoin.</p>
+<a class="btn" id="wa" href="https://wa.me/33780996061?text=Bonjour%20Deborah%2C%20j%27ai%20fait%20le%20quiz%20lip%C5%93d%C3%A8me%20et%20j%27ai%20une%20question.">Une question ? Écris-moi</a>
+<a class="btn alt" href="../">Découvrir mes soins</a>
+<p class="note">Ce quiz sert à préparer un échange avec un professionnel de santé. Il ne remplace pas un avis médical.</p>
+</div>
+</section>
+</main>
+<script>
+const Q=[
+"Tes jambes ont pris du volume des deux côtés, de la même façon ?",
+"Tes chevilles et tes pieds restent fins par rapport à tes jambes ?",
+"Ta peau est douloureuse ou sensible quand on la touche ou qu'on la pince ?",
+"Tu as souvent des bleus sans te souvenir d'un choc ?",
+"Le volume de tes jambes ne bouge pas, même quand tu perds du poids ?",
+"Tes jambes sont lourdes, surtout le soir ou quand il fait chaud ?",
+"Ça a commencé ou augmenté à la puberté, pendant une grossesse ou à la ménopause ?",
+"D'autres femmes de ta famille ont la même silhouette de jambes ?"];
+const R={};const box=document.getElementById('qs');
+Q.forEach((q,i)=>{const d=document.createElement('div');d.className='q';d.innerHTML=`<p>${i+1}. ${q}</p><div class="ch"><button data-v="1">Oui</button><button data-v="0">Non</button></div>`;
+d.querySelectorAll('button').forEach(b=>b.onclick=()=>{d.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');R[i]=+b.dataset.v});box.appendChild(d)});
+document.getElementById('voir').onclick=e=>{e.preventDefault();
+const oui=Q.filter((q,i)=>R[i]===1);const n=oui.length;
+document.getElementById('txt').textContent=n>=3?`Tu as répondu oui à ${n} questions sur 8. Ça vaut la peine d'en parler à ton médecin, avec ces réponses.`:n>0?`Tu as répondu oui à ${n} question${n>1?'s':''} sur 8. Si tu as un doute, parles-en à ton médecin.`:`Tu n'as répondu oui à aucune question. Si tu as un doute, parles-en quand même à ton médecin.`;
+document.getElementById('oui').innerHTML=oui.map(q=>`<li>${q}</li>`).join('');
+const wa=document.getElementById('wa');wa.href='https://wa.me/33780996061?text='+encodeURIComponent(`Bonjour Deborah, j'ai fait le quiz lipœdème (${n} oui sur 8) et j'ai une question.`);
+const r=document.getElementById('res');r.style.display='block';r.scrollIntoView({behavior:'smooth'})};
+</script>
+</body>
+</html>
