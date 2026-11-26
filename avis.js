@@ -1,0 +1,1 @@
+(function(){fetch('https://deborahs94.github.io/Leads/data/avis.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(d){if(d&&d.count>0){document.querySelectorAll('.n-avis').forEach(function(e){e.textContent=d.count})}}).catch(function(){})})();
