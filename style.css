@@ -80,3 +80,9 @@ footer .sig{font-family:'Playfair Display',serif;font-size:24px;color:var(--bord
 .list.in{padding:4px 14px 18px}
 .list.in a{background:var(--creme)}
 html{scroll-behavior:smooth}
+
+.list a.hl{border:1.5px solid var(--bordeaux)}
+.fold.more{margin-top:14px;border-style:dashed}
+.fold.more>summary{padding:16px 54px 16px 20px}
+.fold.more>summary .fs{font-weight:600;color:var(--bordeaux)}
+.fold.more .list{padding:0 12px 12px}
