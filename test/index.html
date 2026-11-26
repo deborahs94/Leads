@@ -136,6 +136,7 @@ f.onsubmit=async e=>{e.preventDefault();er.style.display='none';
   document.getElementById('wa').href='https://wa.me/33780996061?text='+encodeURIComponent(`Bonjour Deborah, c'est ${P}. J'ai fait le test (${RES.split(' :')[0].replace('Test ','')}) et je voudrais le programme de la formation.`);
   f.style.display='none';document.getElementById('ok').style.display='block';
   if(window.fbq)fbq('track','Lead');
+  setTimeout(function(){location.href='../praticiennes/programme/'},2500);
  }catch(x){er.textContent='Petit souci de connexion, réessaie dans un instant.';er.style.display='block';b.disabled=false;b.textContent='Recevoir le programme'}};
 </script>
 </body>

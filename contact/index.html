@@ -234,6 +234,7 @@ f.onsubmit=async e=>{e.preventDefault();er.style.display='none';
   document.getElementById('wa').href='https://wa.me/33780996061?text='+encodeURIComponent(`Bonjour Deborah, c'est ${P}. Je viens de demander le programme de la formation (${J}).`);
   f.style.display='none';document.getElementById('ok').style.display='block';st.remove();
   if(window.fbq)fbq('track','Lead');
+  setTimeout(function(){location.href='../praticiennes/programme/'},2500);
  }catch(x){er.textContent='Petit souci de connexion, réessaie dans un instant.';er.style.display='block';b.disabled=false;b.textContent='Je me lance'}};
 </script>
 <script src="https://deborahs94.github.io/Leads/avis.js" defer></script>
