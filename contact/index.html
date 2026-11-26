@@ -210,7 +210,10 @@ main{padding-bottom:90px}
 <div class="sticky" id="st"><a href="#go">Recevoir le programme</a></div>
 <script>
 const now=new Date();
-if(now>=new Date('2026-11-30T00:00:00+01:00')){document.getElementById('bf').style.display='none';document.getElementById('bfcard').style.display='none'}
+if(now>=new Date('2026-11-30T00:00:00+01:00')){document.getElementById('bf').style.display='none';
+ var c=document.getElementById('bfcard');if(c){var tg=c.querySelector('.tag');if(tg)tg.remove();c.querySelector('p').innerHTML="<strong>1\u00a0000\u00a0€</strong>, avec la visio privée. La machine s'achète à part."}
+ var lb=document.querySelector('#offres .lab');if(lb)lb.textContent='Choisis ta formule';var hh=document.querySelector('#offres h2');if(hh)hh.textContent='Deux façons de te former.';
+ document.querySelectorAll('#j option').forEach(function(o){if(/Black Friday/.test(o.textContent))o.remove()})}
 if(now>=new Date('2027-01-01')){document.getElementById('offre').style.display='none';document.getElementById('offres').style.display='none'}
 const st=document.getElementById('st'),go=document.getElementById('go');
 addEventListener('scroll',()=>{const r=go.getBoundingClientRect();st.style.display=(scrollY>500&&r.top>innerHeight)?'block':'none'},{passive:true});
