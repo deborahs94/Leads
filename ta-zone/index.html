@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Quel soin pour ta zone ? · Deborah.S">
+<meta property="og:description" content="3 questions pour savoir par où commencer, et réserver tout de suite.">
+<meta property="og:image" content="https://deborahs94.github.io/Leads/img/partage.jpg">
+<meta property="og:url" content="https://deborahs94.github.io/Leads/ta-zone/">
+<meta name="twitter:card" content="summary_large_image">
+<title>Quel soin pour ta zone ? · Deborah.S</title>
+<meta name="description" content="3 questions pour savoir par où commencer, et réserver tout de suite.">
+<link rel="stylesheet" href="../style.css?v=4">
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','359217615347501');fbq('track','PageView');</script>
+<style>
+.q{border-bottom:1px solid rgba(107,21,38,.15);padding:18px 0}
+.q p{margin:0 0 12px;font-weight:600}
+.ch{display:grid;gap:10px}
+.ch button{padding:13px 16px;border:1.5px solid #6B1526;background:#fff;color:#2b2224;border-radius:14px;font:500 15px Montserrat,sans-serif;cursor:pointer;text-align:left}
+.ch button.on{background:#6B1526;color:#fff}
+.btn{display:block;text-align:center;background:#6B1526;color:#fff;text-decoration:none;padding:16px;border-radius:30px;font-weight:700;margin-top:18px;border:0;width:100%;font-size:14px;letter-spacing:.08em;cursor:pointer;box-sizing:border-box}
+.btn.alt{background:#fff;color:#6B1526;border:1.5px solid #6B1526}
+#res{display:none}
+.card{background:#fff;border:1.5px solid #6B1526;border-radius:14px;padding:22px;margin-top:10px}
+.card h2{margin-top:0}
+.med{background:#EFE7DC;border-radius:14px;padding:16px 20px;margin-top:14px;font-size:15px}
+.err{color:#a0102a;font-size:14px;margin-top:10px;display:none}
+.small{font-size:12px;opacity:.7;margin-top:14px}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="k">Corps et visage · Créteil</div>
+<h1>Quel soin <em>pour ta zone ?</em></h1>
+<p>3 questions pour savoir par où commencer. Tu vois ta réponse tout de suite, et tu peux réserver dans la foulée.</p>
+</div></header>
+<main class="wrap">
+<section id="quiz">
+<div id="qs"></div>
+<button class="btn" id="voir">Voir ma réponse</button>
+<p class="err" id="e0">Réponds aux 3 questions pour voir ta réponse.</p>
+</section>
+
+<section id="res">
+<div class="lab">Ta réponse</div>
+<div class="card">
+<h2 id="tt"></h2>
+<p id="tx"></p>
+<div class="med" id="md" style="display:none"></div>
+<a class="btn alt" id="gd" href="#">Lire mon guide</a>
+<a class="btn" id="rv" href="https://deborahsliporf94.setmore.com/?utm_source=quiz&amp;utm_medium=lead&amp;utm_campaign=ta-zone" target="_blank" rel="noopener">Réserver mon bilan</a>
+<a class="btn alt" id="wa" href="https://wa.me/33780996061" target="_blank" rel="noopener">Une question ? Écris-moi</a>
+</div>
+<p class="small">Ce test t'oriente, il ne remplace pas le bilan que je fais avant chaque soin. Les résultats varient d'une personne à l'autre.</p>
+</section>
+</main>
+<script>
+const Q=[
+["Où ça te gêne le plus ?",[["ventre","Le ventre et les flancs"],["cuisses","Les cuisses et les fesses"],["bras","Les bras"],["visage","Le visage"],["jambes","Les jambes lourdes ou gonflées"]]],
+["Qu'est-ce que tu observes ?",[["graisse","Un petit bourrelet qui résiste, même avec du sport"],["peau","Une peau qui se relâche"],["gonfle","Un gonflement, une sensation de lourdeur"],["deux","Un peu des deux, je ne sais pas"]]],
+["Tes jambes sont douloureuses au toucher, ou tu as souvent des bleus sans choc ?",[["oui","Oui"],["non","Non"]]]];
+const R={};const box=document.getElementById('qs');
+Q.forEach((q,i)=>{const d=document.createElement('div');d.className='q';d.innerHTML=`<p>${i+1}. ${q[0]}</p><div class="ch">${q[1].map(o=>`<button data-v="${o[0]}">${o[1]}</button>`).join('')}</div>`;
+d.querySelectorAll('button').forEach(b=>b.onclick=()=>{d.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');R[i]=b.dataset.v});box.appendChild(d)});
+const G={
+graisse:{u:"../zone/",l:"Lire : ce bourrelet qui résiste au sport",t:"Un soin ciblé sur ta zone",x:"Quand un bourrelet résiste malgré le sport, on regarde d'abord ce que c'est : de la graisse localisée ou autre chose. La lipocavitation travaille sur les zones concernées, en cure de plusieurs séances."},
+peau:{u:"../corps/",l:"Lire : graisse ou peau qui se relâche ?",t:"On commence par la fermeté",x:"Si c'est surtout la peau qui se relâche, ce n'est pas le même soin qu'un bourrelet. La radiofréquence travaille la fermeté, et le bilan permet de choisir le bon rythme."},
+gonfle:{u:"../drainage/",l:"Lire : ta première séance de drainage",t:"Le drainage, pour commencer",x:"Un gonflement et une sensation de lourdeur, ça se travaille d'abord avec le drainage lymphatique brésilien : des gestes précis, avec un rythme."},
+deux:{u:"../corps/",l:"Fais le test : graisse ou peau qui se relâche ?",t:"On regarde ensemble",x:"Quand on ne sait pas, c'est normal : graisse et relâchement ne se traitent pas pareil. Le test de 10 secondes du guide t'aide, et le bilan le confirme avant tout soin."},
+visage:{u:"../visage/",l:"Lire : radiofréquence ou drainage visage ?",t:"Un soin visage adapté",x:"Pour le visage, tout dépend de ce que tu veux améliorer : la fermeté, ou le côté gonflé. Le guide t'explique la différence entre radiofréquence et drainage visage."}};
+document.getElementById('voir').onclick=()=>{
+ if(Object.keys(R).length<3){document.getElementById('e0').style.display='block';return}
+ document.getElementById('e0').style.display='none';
+ const key=R[0]==='visage'?'visage':(R[0]==='jambes'&&R[1]!=='graisse'&&R[1]!=='peau'?'gonfle':R[1]);
+ const g=G[key];
+ document.getElementById('tt').textContent=g.t;document.getElementById('tx').textContent=g.x;
+ const gd=document.getElementById('gd');gd.href=g.u;gd.textContent=g.l;
+ const md=document.getElementById('md');
+ if(R[2]==='oui'){md.style.display='block';md.innerHTML="Des jambes douloureuses au toucher ou des bleus fréquents méritent d'abord l'avis d'un médecin. <a href=\"../quiz/\">Fais ce quiz</a> pour préparer ton rendez-vous, puis reviens me voir.";document.getElementById('rv').textContent='Réserver quand même un bilan'}
+ document.getElementById('wa').href='https://wa.me/33780996061?text='+encodeURIComponent(`Bonjour Deborah, j'ai fait le test « Quel soin pour ta zone ? » : ${Q[0][1].find(o=>o[0]===R[0])[1]}, ${Q[1][1].find(o=>o[0]===R[1])[1].toLowerCase()}. J'ai une question.`);
+ const r=document.getElementById('res');r.style.display='block';r.scrollIntoView({behavior:'smooth'});
+ if(window.fbq)fbq('trackCustom','TestZoneTermine',{zone:R[0]});
+ document.getElementById('rv').onclick=()=>{if(window.fbq)fbq('trackCustom','ReserverDepuisTest')}};
+</script>
+</body>
+</html>
