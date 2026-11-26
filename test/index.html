@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ta formation t'a-t-elle vraiment tout appris ? · Deborah.S">
+<meta property="og:description" content="10 questions pour voir ce qu'il te manque avant de proposer lipocavitation et radiofréquence à tes clientes.">
+<meta property="og:image" content="https://deborahs94.github.io/Leads/img/formation-1.jpg">
+<meta property="og:url" content="https://deborahs94.github.io/Leads/test/">
+<meta name="twitter:card" content="summary_large_image">
+<title>Ta formation t'a-t-elle vraiment tout appris ? · Deborah.S</title>
+<meta name="description" content="10 questions pour voir ce qu'il te manque avant de proposer lipocavitation et radiofréquence à tes clientes.">
+<link rel="stylesheet" href="../style.css?v=4">
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','359217615347501');fbq('track','PageView');</script>
+<style>
+.q{border-bottom:1px solid rgba(107,21,38,.15);padding:18px 0}
+.q p{margin:0 0 12px;font-weight:500}
+.ch{display:flex;gap:10px}
+.ch button{flex:1;padding:12px;border:1.5px solid #6B1526;background:#fff;color:#6B1526;border-radius:30px;font:600 15px Montserrat,sans-serif;cursor:pointer}
+.ch button.on{background:#6B1526;color:#fff}
+.btn{display:block;text-align:center;background:#6B1526;color:#fff;text-decoration:none;padding:16px;border-radius:30px;font-weight:700;margin-top:18px;border:0;width:100%;font-size:14px;letter-spacing:.08em;cursor:pointer}
+.btn.alt{background:#fff;color:#6B1526;border:1.5px solid #6B1526}
+#res{display:none}
+.score{font-family:'Playfair Display',serif;font-size:64px;color:#6B1526;line-height:1}
+.miss{background:#fff;border:1px solid var(--filet);border-radius:14px;padding:16px 20px;margin-top:14px}
+.miss ul{margin:8px 0 0;padding-left:18px}.miss li{margin:4px 0}
+form{background:#fff;border:1.5px solid #6B1526;border-radius:14px;padding:22px;margin-top:18px}
+label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px}
+input{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid rgba(107,21,38,.35);border-radius:10px;font:16px Montserrat,sans-serif;background:#fff;color:#2b2224}
+.hp{position:absolute;left:-9999px}
+.err{color:#a0102a;font-size:14px;margin-top:10px;display:none}
+.ok{display:none;background:#fff;border:1.5px solid #6B1526;border-radius:14px;padding:22px;margin-top:18px}
+.small{font-size:12px;opacity:.7;margin-top:12px}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="k">Test pour les praticiennes</div>
+<h1>Ta formation t'a-t-elle <em>vraiment tout appris ?</em></h1>
+<p>10 questions, 1 minute. Tu vois tout de suite ce qu'il te manque avant de proposer lipocavitation et radiofréquence à tes clientes.</p>
+</div></header>
+<main class="wrap">
+<section id="quiz">
+<div class="lab">Réponds avec honnêteté</div>
+<h2>Aujourd'hui, <em>je sais…</em></h2>
+<div id="qs"></div>
+<button class="btn" id="voir">Voir mon résultat</button>
+<p class="err" id="e0">Réponds aux 10 questions pour voir ton résultat.</p>
+</section>
+
+<section id="res">
+<div class="lab">Ton résultat</div>
+<div class="score" id="sc"></div>
+<h2 id="tt" style="margin-top:8px"></h2>
+<div class="miss" id="ms"></div>
+<p style="margin-top:16px">Ce sont ces points que je travaille avec toi pendant la journée, sur de vraies modèles, avec moi à côté pour corriger chaque geste.</p>
+
+<form id="f" novalidate>
+<h2 style="margin:0 0 6px">Reçois le programme <em>et les dates.</em></h2>
+<label for="p">Ton prénom</label>
+<input id="p" name="PRENOM" autocomplete="given-name" required>
+<label for="e">Ton e-mail</label>
+<input id="e" name="EMAIL" type="email" autocomplete="email" required>
+<label for="t">Ton téléphone (WhatsApp)</label>
+<input id="t" name="SMS" type="tel" autocomplete="tel" placeholder="06 12 34 56 78" required>
+<input class="hp" name="email_address_check" tabindex="-1" autocomplete="off">
+<button class="btn" id="b" type="submit">Recevoir le programme</button>
+<p class="err" id="er"></p>
+<p class="small">Tes coordonnées servent seulement à te recontacter au sujet de la formation. <a href="../confidentialite/">Confidentialité</a></p>
+</form>
+<div class="ok" id="ok">
+<h2 style="margin-top:0">Merci <span id="pn"></span>, <em>c'est noté.</em></h2>
+<p>Je te recontacte très vite sur WhatsApp ou par e-mail. En attendant, regarde le programme.</p>
+<a class="btn" href="../praticiennes/programme/">Voir le programme</a>
+<a class="btn alt" id="wa" href="https://wa.me/33780996061">Une question ? Écris-moi</a>
+</div>
+</section>
+</main>
+<script>
+const Q=[
+["faire un bilan complet avant la première séance","le bilan avant la première séance"],
+["reconnaître les contre-indications et dire non à une cliente","les contre-indications"],
+["régler ma machine selon la zone et la cliente","le réglage de la machine"],
+["suivre un protocole précis pour chaque zone : ventre, cuisses, bras, visage","les protocoles par zone"],
+["combiner la cavitation et la radiofréquence dans la même séance","combiner cavitation et radiofréquence"],
+["faire des photos avant/après qui montrent vraiment le résultat","les photos avant/après"],
+["présenter et vendre une cure de 4 séances","vendre une cure de 4 séances"],
+["combien de cures il me faut pour rentabiliser ma machine","rentabiliser ta machine"],
+["__J'ai pratiqué sur de vraies modèles pendant ma formation","la pratique sur de vraies modèles"],
+["__Je sais à qui poser mes questions après ma formation","un suivi après la formation"]];
+const R={};const box=document.getElementById('qs');
+Q.forEach((q,i)=>{const d=document.createElement('div');d.className='q';
+d.innerHTML=`<p>${i+1}. ${q[0].startsWith('__')?q[0].slice(2):'Je sais '+q[0]}</p><div class="ch"><button data-v="1">Oui</button><button data-v="0">Pas encore</button></div>`;
+d.querySelectorAll('button').forEach(b=>b.onclick=()=>{d.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');R[i]=+b.dataset.v});box.appendChild(d)});
+let RES='';
+document.getElementById('voir').onclick=()=>{
+ if(Object.keys(R).length<10){document.getElementById('e0').style.display='block';return}
+ document.getElementById('e0').style.display='none';
+ const miss=Q.filter((q,i)=>R[i]===0).map(q=>q[1]);const n=10-miss.length;
+ document.getElementById('sc').textContent=n+' / 10';
+ document.getElementById('tt').textContent=n==10?"Tu as déjà tout. Bravo.":n>=7?"Tu as de bonnes bases, il te manque quelques points.":"Il te manque des bases importantes.";
+ document.getElementById('ms').innerHTML=miss.length?`<b>Ce qu'il te manque</b><ul>${miss.map(m=>`<li>${m}</li>`).join('')}</ul>`:`<b>Rien ne te manque sur ces 10 points.</b> Si tu veux aller plus loin, je te montre mes protocoles.`;
+ RES=`Test ${n} sur 10`+(miss.length?` : il manque ${miss.join(', ')}`:'');
+ const r=document.getElementById('res');r.style.display='block';r.scrollIntoView({behavior:'smooth'});
+ if(window.fbq)fbq('trackCustom','TestTermine',{score:n})};
+const U='https://9ccfbb65.sibforms.com/serve/MUIFADVIp8G3PoHO5djQE7HcgI_I-vXe-XgYMrE-30toz749RUPr2JQ52rgungCasQJxpKoG2laABGzddWFdbC6RZYTvRWFKTtkiSYWF74MxbLqh0Ag5Q-zA_legsFhX1smktEyjy_HIE8zo2CnZj5nV9WnlNJad9F5nCSet7OY8S-5dih8K43KJmuBZz-Zez-hK8pMSLbjX9pRYQg==';
+const f=document.getElementById('f'),er=document.getElementById('er'),b=document.getElementById('b');
+function tel(v){v=v.replace(/[^\d+]/g,'');let cc='+33';
+ if(v.startsWith('00'))v='+'+v.slice(2);
+ if(v.startsWith('+')){const m=v.match(/^\+(590|594|596|262|269|687|689|352|212|213|216|33|32|41|\d{1,3})(\d+)$/);if(m){cc='+'+m[1];v=m[2]}}
+ return [cc,v.replace(/^0/,'')]}
+f.onsubmit=async e=>{e.preventDefault();er.style.display='none';
+ const P=f.PRENOM.value.trim(),E=f.EMAIL.value.trim(),T=f.SMS.value.trim();
+ if(!P||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(E)||T.replace(/\D/g,'').length<9){er.textContent='Remplis bien ton prénom, un e-mail et un téléphone valides.';er.style.display='block';return}
+ const [cc,num]=tel(T);
+ const d=new URLSearchParams({EMAIL:E,PRENOM:P,SMS__COUNTRY_CODE:cc,SMS:num,PROJET:RES,email_address_check:f.email_address_check.value,locale:'fr'});
+ b.disabled=true;b.textContent='Envoi…';
+ try{await fetch(U,{method:'POST',mode:'no-cors',body:d});
+  document.getElementById('pn').textContent=P;
+  document.getElementById('wa').href='https://wa.me/33780996061?text='+encodeURIComponent(`Bonjour Deborah, c'est ${P}. J'ai fait le test (${RES.split(' :')[0].replace('Test ','')}) et je voudrais le programme de la formation.`);
+  f.style.display='none';document.getElementById('ok').style.display='block';
+  if(window.fbq)fbq('track','Lead');
+ }catch(x){er.textContent='Petit souci de connexion, réessaie dans un instant.';er.style.display='block';b.disabled=false;b.textContent='Recevoir le programme'}};
+</script>
+</body>
+</html>
