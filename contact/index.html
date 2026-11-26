@@ -55,16 +55,24 @@ form button:disabled{opacity:.6}
 .sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;display:none}
 .sticky a{display:block;text-align:center;background:#6B1526;color:#fff;text-decoration:none;font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;padding:16px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
 main{padding-bottom:90px}
+.bf{position:sticky;top:0;z-index:60;background:#6B1526;color:#fff;text-align:center;padding:10px 14px;font-size:13px;line-height:1.4}
+.bf b{letter-spacing:.14em}.bf small{display:block;opacity:.92;margin-top:2px;font-size:12px}
+.of{display:grid;gap:12px;margin-top:10px}
+.of>div{background:#fff;border:1.5px solid #6B1526;border-radius:14px;padding:18px 20px}
+.of b{display:block;font-family:'Playfair Display',serif;font-weight:400;font-size:22px;color:#6B1526;margin-top:6px}
+.of p{margin:6px 0 0;font-size:15.5px}
+.tag{display:inline-block;background:#6B1526;color:#fff;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;border-radius:999px;padding:5px 12px}
 </style>
 </head>
 <body>
+<div class="bf" id="bf"><b>BLACK FRIDAY</b> · -50 % sur l'e-learning avec visio privée, jusqu'au 29 novembre<small>Présentiel privé, machine incluse : 2 places</small></div>
 <div class="top"></div>
 <div class="ht">
 <div class="k">Formation lipocavitation et radiofréquence</div>
 <h1>Une journée avec moi, <em>et tu sais vraiment faire.</em></h1>
 <p>Lipocavitation, radiofréquence, vacuum et lipolaser, visage et corps. En privé, 3 personnes maximum, sur de vraies modèles.</p>
 <div class="stars"><b>★★★★★</b> 138 avis Google · Certifiée Qualiopi · Formatrice depuis 2018</div>
-<div class="offre" id="offre">Offre spéciale jusqu'au 31 décembre · 2 places</div>
+<div class="offre" id="offre">2 places en présentiel · jusqu'au 31 décembre</div>
 <a class="go" href="#go">Recevoir le programme et les dates</a>
 </div>
 
@@ -132,6 +140,17 @@ main{padding-bottom:90px}
 <p class="note">Organisme certifié Qualiopi. Paiement possible en 4 fois.</p>
 </section>
 
+<section id="offres">
+<div class="lab">Choisis ta formule</div>
+<h2>Deux façons de te former, <em>une offre en ce moment.</em></h2>
+<div class="of">
+<div><span class="tag">2 places</span><b>Présentiel privé, machine incluse</b><p>Offre spéciale présentiel&nbsp;: <strong>1 590 € au lieu de 2 500 €</strong>, jusqu'au 31 décembre 2026, pour 2 personnes uniquement.</p></div>
+<div id="bfcard"><span class="tag">Black Friday</span><b>E-learning + visio privée</b><p><strong>-50 %</strong> jusqu'au 29 novembre. La machine s'achète à part.</p></div>
+</div>
+<p class="note">Les deux formules couvrent les 4 techniques&nbsp;: lipocavitation, radiofréquence, vacuum, lipolaser.</p>
+<a class="go" href="#go">Je choisis ma formule</a>
+</section>
+
 <section>
 <div class="lab">Tes questions</div>
 <h2>Ce qu'on me demande <em>le plus.</em></h2>
@@ -155,6 +174,8 @@ main{padding-bottom:90px}
 <label for="j">Où tu en es</label>
 <select id="j" name="PROJET" required>
 <option value="">Choisis…</option>
+<option>Je veux l'offre Black Friday e-learning</option>
+<option>Je veux le présentiel, 2 places</option>
 <option>Je veux me lancer</option>
 <option>Je suis déjà formée ailleurs</option>
 <option>J'ai déjà une machine</option>
@@ -176,7 +197,9 @@ main{padding-bottom:90px}
 </main>
 <div class="sticky" id="st"><a href="#go">Recevoir le programme</a></div>
 <script>
-if(new Date()>=new Date('2027-01-01')){document.getElementById('offre').style.display='none'}
+const now=new Date();
+if(now>=new Date('2026-11-30T00:00:00+01:00')){document.getElementById('bf').style.display='none';document.getElementById('bfcard').style.display='none'}
+if(now>=new Date('2027-01-01')){document.getElementById('offre').style.display='none';document.getElementById('offres').style.display='none'}
 const st=document.getElementById('st'),go=document.getElementById('go');
 addEventListener('scroll',()=>{const r=go.getBoundingClientRect();st.style.display=(scrollY>500&&r.top>innerHeight)?'block':'none'},{passive:true});
 const U='https://9ccfbb65.sibforms.com/serve/MUIFADVIp8G3PoHO5djQE7HcgI_I-vXe-XgYMrE-30toz749RUPr2JQ52rgungCasQJxpKoG2laABGzddWFdbC6RZYTvRWFKTtkiSYWF74MxbLqh0Ag5Q-zA_legsFhX1smktEyjy_HIE8zo2CnZj5nV9WnlNJad9F5nCSet7OY8S-5dih8K43KJmuBZz-Zez-hK8pMSLbjX9pRYQg==';
