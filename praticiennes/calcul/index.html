@@ -69,8 +69,9 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
   <b>Ta formation</b>
   <small>Les deux formules couvrent les 4 techniques : lipocavitation, radiofréquence, vacuum, lipolaser.</small>
   <p class="bandeau" id="bandeau">Offre spéciale présentiel&nbsp;: <b>1&nbsp;590&nbsp;€ au lieu de 2&nbsp;500&nbsp;€</b>, jusqu'au 31&nbsp;décembre 2026, pour 2&nbsp;personnes uniquement.</p>
+  <p class="bandeau" id="bandeau2">Black Friday&nbsp;: <b>e-learning + visio privée à -50&nbsp;%</b>, de 1&nbsp;000&nbsp;€ à 500&nbsp;€, jusqu'au 29&nbsp;novembre.</p>
   <div class="choix" role="group" aria-label="Ta formule">
-   <button type="button" data-f="elearning" aria-pressed="false">E-learning + visio privée<span>1&nbsp;000&nbsp;€</span></button>
+   <button type="button" data-f="elearning" aria-pressed="false">E-learning + visio privée<span id="e-prix">1&nbsp;000&nbsp;€</span></button>
    <button type="button" data-f="presentiel" aria-pressed="true" class="promo"><i class="ruban" id="ruban">Offre spéciale</i>Présentiel privé, machine incluse<span id="p-prix"><s>2&nbsp;500&nbsp;€</s> 1&nbsp;590&nbsp;€</span></button>
   </div>
  </div>
@@ -155,7 +156,8 @@ input[type=range]{width:100%;margin:10px 0 4px;accent-color:#6B1526;height:32px}
 <script>
 (function(){
  var $=function(i){return document.getElementById(i)};
- var SEANCES=4,DUREE=1,f='presentiel',FORM={elearning:1000,presentiel:1590},VISAGE=300;
+ var SEANCES=4,DUREE=1,f='presentiel',BF=new Date()<new Date('2026-11-30T00:00:00+01:00'),FORM={elearning:BF?500:1000,presentiel:1590},VISAGE=300;
+ if(BF){$('e-prix').innerHTML='<s>1\u00a0000\u00a0€</s> 500\u00a0€';}else{var b2=$('bandeau2');if(b2)b2.remove();}
  if(new Date()>new Date('2027-01-01T00:00:00')){FORM.presentiel=2500;
   var bd=$('bandeau');if(bd)bd.remove();var dg=$('diag');if(dg)dg.remove();var rb=$('ruban');if(rb)rb.remove();
   $('p-prix').innerHTML='2\u00a0500\u00a0€';document.querySelector('.promo').classList.remove('promo');}
