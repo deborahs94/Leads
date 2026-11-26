@@ -31,6 +31,11 @@ input{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid rgba(1
 .hp{position:absolute;left:-9999px}
 .err{color:#a0102a;font-size:14px;margin-top:10px;display:none}
 .ok{display:none;background:#fff;border:1.5px solid #6B1526;border-radius:14px;padding:22px;margin-top:18px}
+.rs{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--filet);border-radius:14px;padding:12px;margin-top:12px;text-decoration:none;color:inherit}
+.rs img{width:74px;border-radius:8px;flex:none}
+.rs b{display:block;font-family:'Playfair Display',serif;font-weight:400;font-size:19px;color:#6B1526;line-height:1.2}
+.rs small{display:block;font-size:13px;color:#4a413d;margin-top:3px}
+.rs em{display:block;margin-top:6px;font-style:normal;font-weight:700;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#6B1526}
 .small{font-size:12px;opacity:.7;margin-top:12px}
 </style>
 </head>
@@ -54,7 +59,8 @@ input{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid rgba(1
 <div class="score" id="sc"></div>
 <h2 id="tt" style="margin-top:8px"></h2>
 <div class="miss" id="ms"></div>
-<p style="margin-top:16px">Ce sont ces points que je travaille avec toi pendant la journée, sur de vraies modèles, avec moi à côté pour corriger chaque geste.</p>
+<div id="rs"></div>
+<div class="miss" style="margin-top:26px"><b>Tu préfères tout régler avec moi ?</b><p style="margin:8px 0 0">En une journée, je travaille tous ces points avec toi, sur de vraies modèles, avec moi à côté pour corriger chaque geste.</p><a class="btn alt" href="../praticiennes/programme/">Voir le programme</a></div>
 
 <form id="f" novalidate>
 <h2 style="margin:0 0 6px">Reçois le programme <em>et les dates.</em></h2>
@@ -78,20 +84,27 @@ input{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid rgba(1
 </section>
 </main>
 <script>
+const RS={
+bilan:{t:"Bilan diagnostique",d:"Zones, objectifs, antécédents et mesures, à faire remplir avant la première séance.",u:"https://buy.stripe.com/dRm14n9Yn6Zc9vE9o85kk05",p:"12\u00a0€",i:"../img/mock-bilan.png"},
+consent:{t:"Consentement éclairé",d:"8 techniques, plus de 30 contre-indications, droit à l'image et double signature.",u:"https://buy.stripe.com/5kQbJ13zZ4R48rA1VG5kk04",p:"12\u00a0€",i:"../img/mock-consentement.png"},
+fiche:{t:"Fiche tarifaire",d:"La grille de prix pour fixer les tarifs de tes cures avec confiance.",u:"https://buy.stripe.com/bJefZhb2rerE4bk6bW5kk09",p:"12\u00a0€",i:"../img/mock-fiche.png"},
+manuel:{t:"Manuel ultime de sculpture corporelle",d:"41 pages : réglages des machines, protocoles par zone, contre-indications, bilan et photos, tarifs et packs.",u:"https://buy.stripe.com/bJe00j9Yn1ESazIasc5kk08",p:"49\u00a0€",i:"../img/mock-manuel.png"},
+guide:{t:"3 choses que personne ne t'apprend sur la lipocavitation",d:"Le contact, les zones interdites, le protocole.",u:"https://deborahs94.github.io/guidelipo3points/",p:"Gratuit"},
+calc:{t:"La calculette",d:"Combien de cures pour rentabiliser ta formation et ta machine, avec tes propres prix.",u:"../praticiennes/calcul/",p:"Gratuit"}};
 const Q=[
-["faire un bilan complet avant la première séance","le bilan avant la première séance"],
-["reconnaître les contre-indications et dire non à une cliente","les contre-indications"],
-["régler ma machine selon la zone et la cliente","le réglage de la machine"],
-["suivre un protocole précis pour chaque zone : ventre, cuisses, bras, visage","les protocoles par zone"],
-["combiner la cavitation et la radiofréquence dans la même séance","combiner cavitation et radiofréquence"],
-["faire des photos avant/après qui montrent vraiment le résultat","les photos avant/après"],
-["présenter et vendre une cure de 4 séances","vendre une cure de 4 séances"],
-["combien de cures il me faut pour rentabiliser ma machine","rentabiliser ta machine"],
-["__J'ai pratiqué sur de vraies modèles pendant ma formation","la pratique sur de vraies modèles"],
-["__Je sais à qui poser mes questions après ma formation","un suivi après la formation"]];
+["Je sais faire un bilan complet avant la première séance","le bilan avant la première séance","bilan"],
+["Je sais reconnaître les contre-indications et dire non à une cliente","les contre-indications","consent"],
+["Je sais régler ma machine selon la zone et la cliente","le réglage de la machine","manuel"],
+["Je suis un protocole précis pour chaque zone : ventre, cuisses, bras, visage","les protocoles par zone","guide"],
+["Je sais combiner la cavitation et la radiofréquence dans la même séance","combiner cavitation et radiofréquence","manuel"],
+["Je fais des photos avant/après qui montrent vraiment le résultat","les photos avant/après","manuel"],
+["Je sais présenter et vendre une cure de 4 séances","vendre une cure de 4 séances","fiche"],
+["Je sais combien de cures il me faut pour rentabiliser ma machine","rentabiliser ta machine","calc"],
+["J'ai pratiqué sur de vraies modèles pendant ma formation","la pratique sur de vraies modèles",""],
+["Je sais à qui poser mes questions après ma formation","un suivi après la formation",""]];
 const R={};const box=document.getElementById('qs');
 Q.forEach((q,i)=>{const d=document.createElement('div');d.className='q';
-d.innerHTML=`<p>${i+1}. ${q[0].startsWith('__')?q[0].slice(2):'Je sais '+q[0]}</p><div class="ch"><button data-v="1">Oui</button><button data-v="0">Pas encore</button></div>`;
+d.innerHTML=`<p>${i+1}. ${q[0]}</p><div class="ch"><button data-v="1">Oui</button><button data-v="0">Pas encore</button></div>`;
 d.querySelectorAll('button').forEach(b=>b.onclick=()=>{d.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');R[i]=+b.dataset.v});box.appendChild(d)});
 let RES='';
 document.getElementById('voir').onclick=()=>{
@@ -101,6 +114,8 @@ document.getElementById('voir').onclick=()=>{
  document.getElementById('sc').textContent=n+' / 10';
  document.getElementById('tt').textContent=n==10?"Tu as déjà tout. Bravo.":n>=7?"Tu as de bonnes bases, il te manque quelques points.":"Il te manque des bases importantes.";
  document.getElementById('ms').innerHTML=miss.length?`<b>Ce qu'il te manque</b><ul>${miss.map(m=>`<li>${m}</li>`).join('')}</ul>`:`<b>Rien ne te manque sur ces 10 points.</b> Si tu veux aller plus loin, je te montre mes protocoles.`;
+ const keys=[...new Set(Q.filter((q,i)=>R[i]===0&&q[2]).map(q=>q[2]))];
+ document.getElementById('rs').innerHTML=keys.length?`<div class="lab" style="margin-top:26px">Pour t'aider tout de suite</div><h2 style="margin-top:8px">Ce qu'il te faut, <em>point par point.</em></h2>`+keys.map(k=>{const r=RS[k],pts=Q.filter((q,i)=>R[i]===0&&q[2]===k).map(q=>q[1]).join(', ');return `<a class="rs" href="${r.u}" target="_blank" rel="noopener">${r.i?`<img src="${r.i}" alt="">`:''}<span><b>${r.t}</b><small>Pour : ${pts}</small><em>${r.p==='Gratuit'?'Gratuit':'Le découvrir · '+r.p}</em></span></a>`}).join(''):'';
  RES=`Test ${n} sur 10`+(miss.length?` : il manque ${miss.join(', ')}`:'');
  const r=document.getElementById('res');r.style.display='block';r.scrollIntoView({behavior:'smooth'});
  if(window.fbq)fbq('trackCustom','TestTermine',{score:n})};
