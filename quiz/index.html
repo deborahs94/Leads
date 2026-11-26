@@ -4,14 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Lipœdème ou cellulite ? Le quiz · Deborah.S">
-<meta property="og:description" content="8 questions pour préparer ton rendez-vous avec ton médecin.">
+<meta property="og:title" content="Lipœdème ou cellulite ? Le quiz · Deborah.S">
+<meta property="og:description" content="8 questions pour y voir plus clair sur ce que tu observes.">
 <meta property="og:image" content="https://deborahs94.github.io/Leads/img/partage.jpg">
 <meta property="og:url" content="https://deborahs94.github.io/Leads/quiz/">
 <meta name="twitter:card" content="summary_large_image">
-<title>Lipœdème ou cellulite ? Le quiz · Deborah.S</title>
-<meta name="description" content="8 questions pour préparer ton rendez-vous avec ton médecin.">
+<title>Lipœdème ou cellulite ? Le quiz · Deborah.S</title>
+<meta name="description" content="8 questions pour y voir plus clair sur ce que tu observes.">
 <link rel="stylesheet" href="../style.css?v=4">
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','359217615347501');fbq('track','PageView');</script>
 <style>
 .q{border-bottom:1px solid rgba(107,21,38,.15);padding:18px 0}
 .q p{margin:0 0 12px;font-weight:500}
@@ -20,16 +21,23 @@
 .ch button.on{background:#6B1526;color:#fff}
 #res{display:none;background:#fff;border:1.5px solid #6B1526;border-radius:12px;padding:22px;margin-top:24px}
 #res ul{padding-left:18px}
-.btn{display:block;text-align:center;background:#6B1526;color:#fff;text-decoration:none;padding:15px;border-radius:30px;font-weight:600;margin-top:14px}
+.btn{display:block;text-align:center;background:#6B1526;color:#fff;text-decoration:none;padding:15px;border-radius:30px;font-weight:600;margin-top:14px;border:0;width:100%;font-size:14px;letter-spacing:.06em;cursor:pointer;box-sizing:border-box}
 .btn.alt{background:#fff;color:#6B1526;border:1.5px solid #6B1526}
 .note{font-size:13px;opacity:.75;margin-top:18px}
+form{background:#F8F6F1;border:1px solid rgba(107,21,38,.25);border-radius:12px;padding:18px;margin-top:18px}
+label.l{display:block;font-weight:600;font-size:14px;margin:12px 0 6px}
+input[type=text],input[type=email],input[type=tel]{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid rgba(107,21,38,.35);border-radius:10px;font:16px Montserrat,sans-serif;background:#fff}
+.hp{position:absolute;left:-9999px}
+.cb{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;margin-top:14px}.cb input{margin-top:4px}
+.err{color:#a0102a;font-size:14px;margin-top:10px;display:none}
+.ok{display:none;margin-top:18px;padding:14px;background:#F8F6F1;border-radius:12px}
 </style>
 </head>
 <body>
 <header class="hero"><div class="wrap">
 <div class="k">La question à un million</div>
-<h1>Lipœdème ou cellulite ? <em>Le quiz.</em></h1>
-<p>8 questions pour y voir plus clair et préparer ton rendez-vous avec ton médecin. Ce n'est pas un diagnostic : seul un médecin peut le poser.</p>
+<h1>Lipœdème ou cellulite&nbsp;? <em>Le quiz.</em></h1>
+<p>8 questions pour y voir plus clair sur ce que tu observes. C'est une information, pas un diagnostic.</p>
 </div></header>
 <main class="wrap">
 <section id="quiz">
@@ -38,35 +46,60 @@
 <div id="qs"></div>
 <a class="btn" href="#" id="voir">Voir mes réponses</a>
 <div id="res">
-<h2 style="margin-top:0">Tes réponses, <em>à montrer à ton médecin.</em></h2>
+<h2 style="margin-top:0">Tes réponses, <em>en un coup d'œil.</em></h2>
 <p id="txt"></p>
 <ul id="oui"></ul>
-<p><b>Pour ton rendez-vous :</b> prends en photo tes jambes debout, de face et de profil, et note depuis quand tu vois ces changements. Ton médecin traitant peut t'orienter vers un spécialiste si besoin.</p>
-<a class="btn" id="wa" href="https://wa.me/33780996061?text=Bonjour%20Deborah%2C%20j%27ai%20fait%20le%20quiz%20lip%C5%93d%C3%A8me%20et%20j%27ai%20une%20question.">Une question ? Écris-moi</a>
-<a class="btn alt" href="../">Découvrir mes soins</a>
-<p class="note">Ce quiz sert à préparer un échange avec un professionnel de santé. Il ne remplace pas un avis médical.</p>
+<a class="btn" href="https://deborahsliporf94.setmore.com/?utm_source=quiz&amp;utm_medium=lead&amp;utm_campaign=lipoedeme" target="_blank" rel="noopener" id="rv">Réserver mon bilan</a>
+<a class="btn alt" id="wa" href="https://wa.me/33780996061" target="_blank" rel="noopener">Une question&nbsp;? Écris-moi</a>
+
+<form id="f" novalidate>
+<b>Je reçois tes réponses, et je te recontacte.</b>
+<label class="l" for="p">Ton prénom</label><input id="p" type="text" autocomplete="given-name">
+<label class="l" for="e">Ton e-mail</label><input id="e" type="email" autocomplete="email">
+<label class="l" for="t">Ton téléphone</label><input id="t" type="tel" autocomplete="tel" placeholder="06 12 34 56 78">
+<input class="hp" name="email_address_check" id="hp" tabindex="-1" autocomplete="off">
+<label class="cb"><input type="checkbox" id="c"><span>J'accepte que Deborah reçoive mes réponses et me recontacte. <a href="../confidentialite/">Confidentialité</a></span></label>
+<button class="btn" id="b" type="submit">Envoyer mes réponses</button>
+<p class="err" id="er"></p>
+</form>
+<div class="ok" id="ok">Merci <span id="pn"></span>, c'est envoyé. Je te recontacte très vite.</div>
+<p class="note">Ce quiz donne une information. Il ne remplace pas un diagnostic.</p>
 </div>
 </section>
 </main>
 <script>
 const Q=[
-"Tes jambes ont pris du volume des deux côtés, de la même façon ?",
-"Tes chevilles et tes pieds restent fins par rapport à tes jambes ?",
-"Ta peau est douloureuse ou sensible quand on la touche ou qu'on la pince ?",
-"Tu as souvent des bleus sans te souvenir d'un choc ?",
-"Le volume de tes jambes ne bouge pas, même quand tu perds du poids ?",
-"Tes jambes sont lourdes, surtout le soir ou quand il fait chaud ?",
-"Ça a commencé ou augmenté à la puberté, pendant une grossesse ou à la ménopause ?",
-"D'autres femmes de ta famille ont la même silhouette de jambes ?"];
-const R={};const box=document.getElementById('qs');
-Q.forEach((q,i)=>{const d=document.createElement('div');d.className='q';d.innerHTML=`<p>${i+1}. ${q}</p><div class="ch"><button data-v="1">Oui</button><button data-v="0">Non</button></div>`;
+["Tes jambes ont pris du volume des deux côtés, de la même façon ?","jambes volumineuses des 2 côtés"],
+["Tes chevilles et tes pieds restent fins par rapport à tes jambes ?","chevilles fines"],
+["Ta peau est douloureuse ou sensible quand on la touche ou qu'on la pince ?","peau douloureuse"],
+["Tu as souvent des bleus sans te souvenir d'un choc ?","bleus faciles"],
+["Le volume de tes jambes ne bouge pas, même quand tu perds du poids ?","volume qui ne bouge pas malgré la perte de poids"],
+["Tes jambes sont lourdes, surtout le soir ou quand il fait chaud ?","jambes lourdes"],
+["Ça a commencé ou augmenté à la puberté, pendant une grossesse ou à la ménopause ?","début puberté, grossesse ou ménopause"],
+["D'autres femmes de ta famille ont la même silhouette de jambes ?","même silhouette dans la famille"]];
+const R={};const box=document.getElementById('qs');let RES='';
+Q.forEach((q,i)=>{const d=document.createElement('div');d.className='q';d.innerHTML=`<p>${i+1}. ${q[0]}</p><div class="ch"><button data-v="1">Oui</button><button data-v="0">Non</button></div>`;
 d.querySelectorAll('button').forEach(b=>b.onclick=()=>{d.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');R[i]=+b.dataset.v});box.appendChild(d)});
 document.getElementById('voir').onclick=e=>{e.preventDefault();
 const oui=Q.filter((q,i)=>R[i]===1);const n=oui.length;
-document.getElementById('txt').textContent=n>=3?`Tu as répondu oui à ${n} questions sur 8. Ça vaut la peine d'en parler à ton médecin, avec ces réponses.`:n>0?`Tu as répondu oui à ${n} question${n>1?'s':''} sur 8. Si tu as un doute, parles-en à ton médecin.`:`Tu n'as répondu oui à aucune question. Si tu as un doute, parles-en quand même à ton médecin.`;
-document.getElementById('oui').innerHTML=oui.map(q=>`<li>${q}</li>`).join('');
-const wa=document.getElementById('wa');wa.href='https://wa.me/33780996061?text='+encodeURIComponent(`Bonjour Deborah, j'ai fait le quiz lipœdème (${n} oui sur 8) et j'ai une question.`);
-const r=document.getElementById('res');r.style.display='block';r.scrollIntoView({behavior:'smooth'})};
+document.getElementById('txt').textContent=n>=3?`Tu as répondu oui à ${n} questions sur 8. Ça donne une indication sur ce que tu observes, et on peut regarder ça ensemble.`:n>0?`Tu as répondu oui à ${n} question${n>1?'s':''} sur 8. On peut regarder ça ensemble au bilan.`:`Tu n'as répondu oui à aucune question. Si tu as un doute, on peut regarder ensemble.`;
+document.getElementById('oui').innerHTML=oui.map(q=>`<li>${q[0]}</li>`).join('');
+RES=`Cliente · Quiz lipœdème ${n}/8`+(n?` : ${oui.map(q=>q[1]).join(', ')}`:'');
+document.getElementById('wa').href='https://wa.me/33780996061?text='+encodeURIComponent(`Bonjour Deborah, j'ai fait le quiz lipœdème (${n} oui sur 8) et j'ai une question.`);
+document.getElementById('rv').onclick=()=>{if(window.fbq)fbq('trackCustom','ReserverDepuisTest')};
+const r=document.getElementById('res');r.style.display='block';r.scrollIntoView({behavior:'smooth'});
+if(window.fbq)fbq('trackCustom','QuizLipoedemeTermine',{oui:n})};
+const U='https://9ccfbb65.sibforms.com/serve/MUIFADVIp8G3PoHO5djQE7HcgI_I-vXe-XgYMrE-30toz749RUPr2JQ52rgungCasQJxpKoG2laABGzddWFdbC6RZYTvRWFKTtkiSYWF74MxbLqh0Ag5Q-zA_legsFhX1smktEyjy_HIE8zo2CnZj5nV9WnlNJad9F5nCSet7OY8S-5dih8K43KJmuBZz-Zez-hK8pMSLbjX9pRYQg==';
+const f=document.getElementById('f'),er=document.getElementById('er'),b=document.getElementById('b');
+function tel(v){v=v.replace(/[^\d+]/g,'');let cc='+33';if(v.startsWith('00'))v='+'+v.slice(2);
+ if(v.startsWith('+')){const m=v.match(/^\+(590|594|596|262|269|687|689|352|212|213|216|33|32|41|\d{1,3})(\d+)$/);if(m){cc='+'+m[1];v=m[2]}}return [cc,v.replace(/^0/,'')]}
+f.onsubmit=async e=>{e.preventDefault();er.style.display='none';
+ const P=document.getElementById('p').value.trim(),E=document.getElementById('e').value.trim(),T=document.getElementById('t').value.trim();
+ if(!P||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(E)||T.replace(/\D/g,'').length<9||!document.getElementById('c').checked){er.textContent="Remplis ton prénom, un e-mail et un téléphone valides, et coche la case.";er.style.display='block';return}
+ const [cc,num]=tel(T);b.disabled=true;b.textContent='Envoi…';
+ try{await fetch(U,{method:'POST',mode:'no-cors',body:new URLSearchParams({EMAIL:E,PRENOM:P,SMS__COUNTRY_CODE:cc,SMS:num,PROJET:RES,email_address_check:document.getElementById('hp').value,locale:'fr'})});
+  document.getElementById('pn').textContent=P;f.style.display='none';document.getElementById('ok').style.display='block';if(window.fbq)fbq('track','Lead');
+ }catch(x){er.textContent='Petit souci de connexion, réessaie dans un instant.';er.style.display='block';b.disabled=false;b.textContent='Envoyer mes réponses'}};
 </script>
 </body>
 </html>

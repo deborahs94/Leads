@@ -26,6 +26,12 @@
 .card h2{margin-top:0}
 .med{background:#EFE7DC;border-radius:14px;padding:16px 20px;margin-top:14px;font-size:15px}
 .err{color:#a0102a;font-size:14px;margin-top:10px;display:none}
+form{background:#F8F6F1;border:1px solid rgba(107,21,38,.25);border-radius:12px;padding:18px;margin-top:18px}
+label.l{display:block;font-weight:600;font-size:14px;margin:12px 0 6px}
+input[type=text],input[type=email],input[type=tel]{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid rgba(107,21,38,.35);border-radius:10px;font:16px Montserrat,sans-serif;background:#fff}
+.hp{position:absolute;left:-9999px}
+.cb{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;margin-top:14px}.cb input{margin-top:4px}
+.ok{display:none;margin-top:18px;padding:14px;background:#F8F6F1;border-radius:12px}
 .small{font-size:12px;opacity:.7;margin-top:14px}
 </style>
 </head>
@@ -52,6 +58,17 @@
 <a class="btn" id="rv" href="https://deborahsliporf94.setmore.com/?utm_source=quiz&amp;utm_medium=lead&amp;utm_campaign=ta-zone" target="_blank" rel="noopener">Réserver mon bilan</a>
 <a class="btn alt" id="wa" href="https://wa.me/33780996061" target="_blank" rel="noopener">Une question ? Écris-moi</a>
 </div>
+<form id="f" novalidate>
+<b>Je reçois tes réponses, et je te recontacte.</b>
+<label class="l" for="p">Ton prénom</label><input id="p" type="text" autocomplete="given-name">
+<label class="l" for="e">Ton e-mail</label><input id="e" type="email" autocomplete="email">
+<label class="l" for="t">Ton téléphone</label><input id="t" type="tel" autocomplete="tel" placeholder="06 12 34 56 78">
+<input class="hp" id="hp" tabindex="-1" autocomplete="off">
+<label class="cb"><input type="checkbox" id="c"><span>J'accepte que Deborah reçoive mes réponses et me recontacte. <a href="../confidentialite/">Confidentialité</a></span></label>
+<button class="btn" id="b" type="submit">Envoyer mes réponses</button>
+<p class="err" id="er"></p>
+</form>
+<div class="ok" id="ok">Merci <span id="pn"></span>, c'est envoyé. Je te recontacte très vite.</div>
 <p class="small">Ce test t'oriente, il ne remplace pas le bilan que je fais avant chaque soin. Les résultats varient d'une personne à l'autre.</p>
 </section>
 </main>
@@ -60,7 +77,7 @@ const Q=[
 ["Où ça te gêne le plus ?",[["ventre","Le ventre et les flancs"],["cuisses","Les cuisses et les fesses"],["bras","Les bras"],["visage","Le visage"],["jambes","Les jambes lourdes ou gonflées"]]],
 ["Qu'est-ce que tu observes ?",[["graisse","Un petit bourrelet qui résiste, même avec du sport"],["peau","Une peau qui se relâche"],["gonfle","Un gonflement, une sensation de lourdeur"],["deux","Un peu des deux, je ne sais pas"]]],
 ["Tes jambes sont douloureuses au toucher, ou tu as souvent des bleus sans choc ?",[["oui","Oui"],["non","Non"]]]];
-const R={};const box=document.getElementById('qs');
+let RES='';const R={};const box=document.getElementById('qs');
 Q.forEach((q,i)=>{const d=document.createElement('div');d.className='q';d.innerHTML=`<p>${i+1}. ${q[0]}</p><div class="ch">${q[1].map(o=>`<button data-v="${o[0]}">${o[1]}</button>`).join('')}</div>`;
 d.querySelectorAll('button').forEach(b=>b.onclick=()=>{d.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');R[i]=b.dataset.v});box.appendChild(d)});
 const G={
@@ -77,11 +94,23 @@ document.getElementById('voir').onclick=()=>{
  document.getElementById('tt').textContent=g.t;document.getElementById('tx').textContent=g.x;
  const gd=document.getElementById('gd');gd.href=g.u;gd.textContent=g.l;
  const md=document.getElementById('md');
- if(R[2]==='oui'){md.style.display='block';md.innerHTML="Des jambes douloureuses au toucher ou des bleus fréquents méritent d'abord l'avis d'un médecin. <a href=\"../quiz/\">Fais ce quiz</a> pour préparer ton rendez-vous, puis reviens me voir.";document.getElementById('rv').textContent='Réserver quand même un bilan'}
+ if(R[2]==='oui'){md.style.display='block';md.textContent="Merci de me le dire : on en parle ensemble au bilan, ça m'aide à choisir le bon soin."}
+ RES=`Cliente · Zone : ${Q[0][1].find(o=>o[0]===R[0])[1].toLowerCase()}, ${Q[1][1].find(o=>o[0]===R[1])[1].toLowerCase()}${R[2]==='oui'?', jambes douloureuses ou bleus fréquents':''}`;
  document.getElementById('wa').href='https://wa.me/33780996061?text='+encodeURIComponent(`Bonjour Deborah, j'ai fait le test « Quel soin pour ta zone ? » : ${Q[0][1].find(o=>o[0]===R[0])[1]}, ${Q[1][1].find(o=>o[0]===R[1])[1].toLowerCase()}. J'ai une question.`);
  const r=document.getElementById('res');r.style.display='block';r.scrollIntoView({behavior:'smooth'});
  if(window.fbq)fbq('trackCustom','TestZoneTermine',{zone:R[0]});
  document.getElementById('rv').onclick=()=>{if(window.fbq)fbq('trackCustom','ReserverDepuisTest')}};
+const U='https://9ccfbb65.sibforms.com/serve/MUIFADVIp8G3PoHO5djQE7HcgI_I-vXe-XgYMrE-30toz749RUPr2JQ52rgungCasQJxpKoG2laABGzddWFdbC6RZYTvRWFKTtkiSYWF74MxbLqh0Ag5Q-zA_legsFhX1smktEyjy_HIE8zo2CnZj5nV9WnlNJad9F5nCSet7OY8S-5dih8K43KJmuBZz-Zez-hK8pMSLbjX9pRYQg==';
+const f=document.getElementById('f'),er=document.getElementById('er'),b=document.getElementById('b');
+function tel(v){v=v.replace(/[^\d+]/g,'');let cc='+33';if(v.startsWith('00'))v='+'+v.slice(2);
+ if(v.startsWith('+')){const m=v.match(/^\+(590|594|596|262|269|687|689|352|212|213|216|33|32|41|\d{1,3})(\d+)$/);if(m){cc='+'+m[1];v=m[2]}}return [cc,v.replace(/^0/,'')]}
+f.onsubmit=async e=>{e.preventDefault();er.style.display='none';
+ const P=document.getElementById('p').value.trim(),E=document.getElementById('e').value.trim(),T=document.getElementById('t').value.trim();
+ if(!P||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(E)||T.replace(/\D/g,'').length<9||!document.getElementById('c').checked){er.textContent="Remplis ton prénom, un e-mail et un téléphone valides, et coche la case.";er.style.display='block';return}
+ const [cc,num]=tel(T);b.disabled=true;b.textContent='Envoi…';
+ try{await fetch(U,{method:'POST',mode:'no-cors',body:new URLSearchParams({EMAIL:E,PRENOM:P,SMS__COUNTRY_CODE:cc,SMS:num,PROJET:RES,email_address_check:document.getElementById('hp').value,locale:'fr'})});
+  document.getElementById('pn').textContent=P;f.style.display='none';document.getElementById('ok').style.display='block';if(window.fbq)fbq('track','Lead');
+ }catch(x){er.textContent='Petit souci de connexion, réessaie dans un instant.';er.style.display='block';b.disabled=false;b.textContent='Envoyer mes réponses'}};
 </script>
 </body>
 </html>
