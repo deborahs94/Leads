@@ -108,7 +108,7 @@ d.innerHTML=`<p>${i+1}. ${q[0]}</p><div class="ch"><button data-v="1">Oui</butto
 d.querySelectorAll('button').forEach(b=>b.onclick=()=>{d.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');R[i]=+b.dataset.v});box.appendChild(d)});
 let RES='';
 document.getElementById('voir').onclick=()=>{
- if(Object.keys(R).length<10){document.getElementById('e0').style.display='block';return}
+ if(Object.keys(R).length<10){const e0=document.getElementById('e0');e0.style.display='block';const k=Q.findIndex((q,i)=>R[i]===undefined),qq=box.children[k];e0.textContent='Il te manque la question '+(k+1)+'.';qq.style.background='#f6e3e6';qq.style.borderRadius='14px';qq.scrollIntoView({behavior:'smooth',block:'center'});return}
  document.getElementById('e0').style.display='none';
  const miss=Q.filter((q,i)=>R[i]===0).map(q=>q[1]);const n=10-miss.length;
  document.getElementById('sc').textContent=n+' / 10';
